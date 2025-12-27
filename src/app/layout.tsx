@@ -11,7 +11,9 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
       { url: "/app-icon.png", type: "image/png" },
-  ],
+    ],
+    apple: "/app-icon.png",
+  },
   keywords: ["Socialite", "legal", "privacy policy", "terms of service", "community guidelines"],
   authors: [{ name: "Socialite" }],
   openGraph: {
