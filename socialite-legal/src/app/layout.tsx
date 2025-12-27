@@ -7,6 +7,10 @@ export const metadata: Metadata = {
     template: "%s | Socialite",
   },
   description: "Legal documents and policies for the Socialite app",
+  icons: {
+    icon: "/app-icon.png",
+    shortcut: "/favicon.ico",
+  },
   keywords: ["Socialite", "legal", "privacy policy", "terms of service", "community guidelines"],
   authors: [{ name: "Socialite" }],
   openGraph: {
