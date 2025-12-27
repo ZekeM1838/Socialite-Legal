@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   },
   description: "Legal documents and policies for the Socialite app",
   icons: {
-    icon: "/icon.png",
-    shortcut: "favicon-16x16.png",
-    favicon: "favicon.ico",
+    icon: "/app-icon.png",
+    shortcut: "/favicon-16x16.png",
+    favicon: "/favicon.ico",
     apple: "/app-icon.png",
   },
   keywords: ["Socialite", "legal", "privacy policy", "terms of service", "community guidelines"],
