@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/app-icon.png",
     shortcut: "/favicon-16x16.png",
-    favicon: "/favicon.ico",
     apple: "/app-icon.png",
   },
   keywords: ["Socialite", "legal", "privacy policy", "terms of service", "community guidelines"],
