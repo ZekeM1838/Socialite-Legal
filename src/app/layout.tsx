@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import GoogleAnalytics from "../components/GoogleAnalytics";
+import CookieConsent from "../components/CookieConsent";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL
@@ -80,9 +82,11 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         </head>
       <body className="antialiased flex flex-col min-h-screen">
+        <GoogleAnalytics />
         <div className="flex-1">
           {children}
         </div>
+        <CookieConsent />
       </body>
     </html>
   );
