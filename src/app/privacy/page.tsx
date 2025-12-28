@@ -1,5 +1,3 @@
-"use client";
-
 import LegalPageLayout from "../../components/LegalPageLayout";
 import type { Metadata } from "next";
 
