@@ -4,7 +4,7 @@ import Script from "next/script";
 import { useEffect, useState } from "react";
 
 // Replace with your actual Google Analytics Measurement ID
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-G5YGLN0DZV";
 
 export default function GoogleAnalytics() {
   const [consentGiven, setConsentGiven] = useState(false);
