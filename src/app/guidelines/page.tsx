@@ -1,6 +1,19 @@
-"use client";
-
 import LegalPageLayout from "../../components/LegalPageLayout";
+import type { Metadata } from "next";
+
+// Force static generation
+export const dynamic = "force-static";
+export const revalidate = false;
+
+export const metadata: Metadata = {
+  title: "Community Guidelines",
+  description: "Standards for behavior and content on the Socialite platform",
+  openGraph: {
+    title: "Community Guidelines | Socialite",
+    description: "Standards for behavior and content on the Socialite platform",
+    type: "website",
+  },
+};
 
 export default function GuidelinesPage() {
   return (
