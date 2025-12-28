@@ -1,7 +1,21 @@
 "use client";
 
 import LegalPageLayout from "../../components/LegalPageLayout";
+import type { Metadata } from "next";
 
+// Force static generation - this page will be built at deploy time
+export const dynamic = "force-static";
+export const revalidate = false; // Never revalidate automatically
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "How Socialite collects, uses, and protects your personal information",
+  openGraph: {
+    title: "Privacy Policy | Socialite",
+    description: "How Socialite collects, uses, and protects your personal information",
+    type: "website",
+  },
+};
 export default function PrivacyPage() {
   return (
     <LegalPageLayout
