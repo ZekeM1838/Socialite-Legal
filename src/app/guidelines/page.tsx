@@ -2,10 +2,6 @@
 
 import LegalPageLayout from "../../components/LegalPageLayout";
 
-// src/app/guidelines/page.tsx
-export const dynamic = 'force-static';
-export const revalidate = 86400; // 24 hours
-
 export default function GuidelinesPage() {
   return (
     <LegalPageLayout
