@@ -6,7 +6,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 
 // Google Analytics Measurement ID
 // In production, set NEXT_PUBLIC_GA_ID in your Vercel environment variables
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-G5YGLN0DZV"; 
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID; 
 
 // Type declarations for Google Analytics
 declare global {
