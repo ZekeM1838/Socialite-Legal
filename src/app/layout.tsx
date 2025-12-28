@@ -6,7 +6,11 @@ const siteUrl =
     ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
     : new URL("http://localhost:3000");
 
-
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover", // This removes the white side bars on iPhones
+};
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
@@ -74,7 +78,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
-      <body className="antialiased min-h-screen">
+      <body className="antialiased min-h-screen overflow-x-hidden">
         {children}
       </body>
     </html>
