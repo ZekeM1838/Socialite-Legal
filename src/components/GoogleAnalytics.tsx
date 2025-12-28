@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { useEffect, useState, useCallback } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 // Google Analytics Measurement ID
 // In production, set NEXT_PUBLIC_GA_ID in your Vercel environment variables
@@ -38,7 +38,6 @@ export default function GoogleAnalytics() {
   const [consentGiven, setConsentGiven] = useState(false);
   const [gaLoaded, setGaLoaded] = useState(false);
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   // Check consent on mount
   useEffect(() => {
@@ -88,7 +87,7 @@ export default function GoogleAnalytics() {
   useEffect(() => {
     if (!gaLoaded) return;
     
-    const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : "");
+    const url = pathname;
     trackPageView(url);
   }, [pathname, searchParams, gaLoaded, trackPageView]);
 
