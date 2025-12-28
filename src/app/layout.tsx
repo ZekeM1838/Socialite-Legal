@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { drexs } from "../lib/fonts";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 import CookieConsent from "../components/CookieConsent";
 
@@ -11,8 +12,9 @@ const siteUrl =
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  viewportFit: "cover", // This removes the white side bars on iPhones
+  viewportFit: "cover",
 };
+
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
@@ -21,16 +23,12 @@ export const metadata: Metadata = {
   },
   description: "Legal documents and policies for the Socialite app",
   
-  // ✅ CORRECTED: Proper favicon configuration for Next.js 15
   icons: {
-    // Standard favicons
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
-    // Fallback .ico file for older browsers
     shortcut: "/favicon-16x16.png",
-    // Apple touch icon for iOS home screen
     apple: [
       { url: "/inverted-v2.png", sizes: "180x180", type: "image/png" },
     ],
@@ -39,7 +37,6 @@ export const metadata: Metadata = {
   keywords: ["Socialite", "legal", "privacy policy", "terms of service", "community guidelines"],
   authors: [{ name: "Socialite" }],
   
-  // Enhanced Open Graph metadata
   openGraph: {
     title: "Socialite",
     description: "Legal documents and policies for the Socialite app",
@@ -55,7 +52,6 @@ export const metadata: Metadata = {
     ],
   },
   
-  // Twitter/X card metadata
   twitter: {
     card: "summary",
     title: "Socialite",
@@ -63,8 +59,7 @@ export const metadata: Metadata = {
     images: ["/favicon-16x16.png"],
   },
   
-  // Additional metadata
-  manifest: "/site.webmanifest", // Optional: for PWA support
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -73,19 +68,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // FIX: Added overflow-x-hidden to html element to prevent horizontal scroll
-    <html lang="en" className="overflow-x-hidden">
+    <html lang="en" className={`overflow-x-hidden ${drexs.variable}`}>
       <head>
-        {/* Additional favicon fallbacks for maximum compatibility */}
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        </head>
+      </head>
       <body className="antialiased flex flex-col min-h-screen">
+        {/* Google Analytics - only loads after cookie consent */}
         <GoogleAnalytics />
+        
         <div className="flex-1">
           {children}
         </div>
+        
+        {/* Cookie Consent Banner */}
         <CookieConsent />
       </body>
     </html>
