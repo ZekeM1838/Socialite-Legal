@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import type { Metadata } from "next";
 
 // Force static generation
 export const dynamic = "force-static";
