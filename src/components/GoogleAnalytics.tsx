@@ -89,7 +89,7 @@ export default function GoogleAnalytics() {
     
     const url = pathname;
     trackPageView(url);
-  }, [pathname, searchParams, gaLoaded, trackPageView]);
+  }, [pathname, gaLoaded, trackPageView]);
 
   // Don't render anything if:
   // - No consent given
