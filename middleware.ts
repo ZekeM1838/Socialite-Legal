@@ -28,6 +28,28 @@ const BLOCKED_PATHS = new Set([
 ]);
 
 // ============================================================================
+// UTILITY FUNCTIONS
+// ============================================================================
+
+function getClientIP(req: NextRequest): string {
+  // When behind Cloudflare, use CF-Connecting-IP
+  const cfIp = req.headers.get("cf-connecting-ip");
+  if (cfIp) return cfIp;
+
+  // Fallback to x-forwarded-for (first IP in the chain)
+  const forwardedFor = req.headers.get("x-forwarded-for");
+  if (forwardedFor) {
+    return forwardedFor.split(",")[0].trim();
+  }
+
+  // Fallback to x-real-ip
+  const realIp = req.headers.get("x-real-ip");
+  if (realIp) return realIp;
+
+  return "unknown";
+}
+
+// ============================================================================
 // CACHE HEADER CONFIGURATION
 // ============================================================================
 
@@ -149,12 +171,13 @@ export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const host = (req.headers.get("host") || "").toLowerCase();
   const isLocalDev = host.startsWith("localhost") || host.startsWith("127.0.0.1");
+  const clientIP = getClientIP(req);
 
   // -------------------------------------------------------------------------
   // 1. BLOCK MALICIOUS PATHS IMMEDIATELY
   // -------------------------------------------------------------------------
   if (BLOCKED_PATHS.has(pathname) || containsSuspiciousPatterns(pathname)) {
-    console.warn(`[SECURITY] Blocked malicious path: ${pathname} from ${req.ip || "unknown IP"}`);
+    console.warn(`[SECURITY] Blocked malicious path: ${pathname} from ${clientIP}`);
     return new NextResponse("Not Found", { status: 404 });
   }
 
@@ -170,7 +193,7 @@ export function middleware(req: NextRequest) {
   // 3. PRODUCTION: VERIFY CLOUDFLARE ORIGIN
   // -------------------------------------------------------------------------
   if (process.env.NODE_ENV === "production" && !isCloudflareRequest(req)) {
-    console.warn(`[SECURITY] Direct origin access attempt: ${host}${pathname} from ${req.ip || "unknown IP"}`);
+    console.warn(`[SECURITY] Direct origin access attempt: ${host}${pathname} from ${clientIP}`);
     return new NextResponse("Forbidden - Direct origin access not allowed", {
       status: 403,
       headers: {
