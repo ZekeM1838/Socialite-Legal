@@ -78,10 +78,11 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-      </head>
-      {/* FIX: Added w-full and max-w-full to constrain body width */}
-      <body className="antialiased min-h-screen overflow-x-hidden w-full max-w-full">
-        {children}
+        </head>
+      <body className="antialiased flex flex-col min-h-screen">
+        <div className="flex-1">
+          {children}
+        </div>
       </body>
     </html>
   );
