@@ -8,13 +8,10 @@
 */
 @font-face {
   font-family: 'Drexs';
-  src: url('/fonts/Drexs.woff2') format('woff2'),
-       url('/fonts/Drexs.woff') format('woff'),
-       url('/fonts/Drexs.ttf') format('truetype'),
-       url('/fonts/Drexs.otf') format('opentype');
+  src: url('/fonts/Drexs.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;  /* This hides text until font loads - no flash */
 }
 
 @custom-variant dark (&:is(.dark *));
