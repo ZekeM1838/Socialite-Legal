@@ -2,6 +2,20 @@ import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
+// Force static generation
+export const dynamic = "force-static";
+export const revalidate = false;
+
+export const metadata: Metadata = {
+  title: "Legal Documents | Socialite",
+  description: "Legal documents and policies for the Socialite app - Privacy Policy, Terms of Service, Cookie Policy, and Community Guidelines",
+  openGraph: {
+    title: "Legal Documents | Socialite",
+    description: "Legal documents and policies for the Socialite app",
+    type: "website",
+  },
+};
+
 const legalDocuments = [
   {
     href: "/privacy",
