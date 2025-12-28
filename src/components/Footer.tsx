@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="mt-12 w-full min-w-full antialiased tracking-tight bg-gradient-to-b from-[#d5d5d5] to-[#868686]">
       
       {/* The inner div handles the max-width and the Safe Area padding */}
-      <div className="max-w-[1440px] mx-auto px-6 pt-4 pb-[calc(16px+env(safe-area-inset-bottom,20px))]">
+      <div className="max-w-[1440px] mx-auto py-3 px-6 pb-[calc(16px+env(safe-area-inset-bottom,20px))]">
         <div className="flex flex-row items-center justify-between w-full gap-x-8 text-[12px] text-black">
           
           <span className="shrink-0 font-medium opacity-80 uppercase tracking-widest whitespace-nowrap">
