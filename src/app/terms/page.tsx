@@ -1,6 +1,19 @@
-"use client";
-
 import LegalPageLayout from "../../components/LegalPageLayout";
+import type { Metadata } from "next";
+
+// Force static generation
+export const dynamic = "force-static";
+export const revalidate = false;
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "The rules and agreements for using the Socialite application",
+  openGraph: {
+    title: "Terms of Service | Socialite",
+    description: "The rules and agreements for using the Socialite application",
+    type: "website",
+  },
+};
 
 export default function TermsPage() {
   return (
