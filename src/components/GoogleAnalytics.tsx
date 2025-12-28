@@ -75,7 +75,7 @@ export default function GoogleAnalytics() {
 
   // Track page views when route changes (after GA is loaded)
   const trackPageView = useCallback((url: string) => {
-    if (typeof window !== "undefined" && window.gtag && gaLoaded) {
+    if (typeof window !== "undefined" && window.gtag && gaLoaded && GA_MEASUREMENT_ID) {
       window.gtag("config", GA_MEASUREMENT_ID, {
         page_path: url,
         anonymize_ip: true,
