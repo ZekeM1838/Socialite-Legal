@@ -1,6 +1,19 @@
-"use client";
-
 import LegalPageLayout from "../../components/LegalPageLayout";
+import type { Metadata } from "next";
+
+// Force static generation
+export const dynamic = "force-static";
+export const revalidate = false;
+
+export const metadata: Metadata = {
+  title: "Cookie Policy",
+  description: "Information about how Socialite uses cookies and tracking technologies",
+  openGraph: {
+    title: "Cookie Policy | Socialite",
+    description: "Information about how Socialite uses cookies and tracking technologies",
+    type: "website",
+  },
+};
 
 export default function CookiesPage() {
   return (
