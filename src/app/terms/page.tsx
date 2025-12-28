@@ -2,6 +2,9 @@
 
 import LegalPageLayout from "../../components/LegalPageLayout";
 
+export const dynamic = 'force-static';
+export const revalidate = 86400; // 24 hours
+
 export default function TermsPage() {
   return (
     <LegalPageLayout
