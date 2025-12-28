@@ -31,33 +31,50 @@ export default function CookieConsent() {
   if (!showBanner) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[100] p-4 bg-white border-t border-[#222222] shadow-lg">
-      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        
-        {/* Text */}
-        <div className="flex-1 text-sm text-black/80">
-          <p>
-            We use cookies to analyze site traffic and improve your experience.{" "}
-            <Link href="/cookies" className="underline hover:text-black">
-              Learn more
-            </Link>
-          </p>
-        </div>
+    <div className="fixed bottom-0 left-0 right-0 z-[100] panel-chrome antialiased tracking-tight">
+      {/* Top border */}
+      <div className="h-[1px] bg-[#222222]"></div>
+      
+      {/* Gradient bar matching header/footer style */}
+      <div className="bg-gradient-to-b from-[#e8e8e9] to-[#5e5c5c]">
+        <div className="max-w-[1440px] mx-auto px-6 py-3">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            
+            {/* Text */}
+            <p 
+              className="text-[12px] text-black font-medium opacity-80 text-center sm:text-left"
+              style={{
+                textShadow: `
+                  0 1px 0 rgba(255,255,255,0.75),
+                  0 -1px 0 rgba(0,0,0,0.25)
+                `,
+              }}
+            >
+              We use cookies to analyze site traffic.{" "}
+              <Link href="/cookies" className="underline hover:opacity-100 transition-opacity">
+                Learn more
+              </Link>
+            </p>
 
-        {/* Buttons */}
-        <div className="flex items-center gap-3 shrink-0">
-          <button
-            onClick={declineCookies}
-            className="px-4 py-2 text-sm text-black/70 hover:text-black transition-colors"
-          >
-            Decline
-          </button>
-          <button
-            onClick={acceptCookies}
-            className="px-6 py-2 text-sm font-medium text-white bg-black rounded-full hover:bg-black/80 transition-colors"
-          >
-            Accept
-          </button>
+            {/* Buttons */}
+            <div className="flex items-center gap-3 shrink-0">
+              <button
+                onClick={declineCookies}
+                className="px-4 py-1 text-[12px] text-black/70 hover:text-black transition-colors uppercase tracking-wider"
+                style={{
+                  textShadow: `0 1px 0 rgba(255,255,255,0.75)`,
+                }}
+              >
+                Decline
+              </button>
+              <button
+                onClick={acceptCookies}
+                className="btn-winamp !min-w-[100px] !h-[32px] !text-[12px] uppercase tracking-wider"
+              >
+                Accept
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
