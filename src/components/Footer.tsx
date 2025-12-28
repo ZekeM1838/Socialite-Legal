@@ -4,11 +4,11 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    // 1. Footer stays full width with the background
-    // Added "w-full" and moved the gradient here
-    <footer className="mt-12 w-full antialiased tracking-tight bg-gradient-to-b from-[#d5d5d5] to-[#868686]">
+    // FIX: Added min-w-full to ensure footer covers full width even with overflow
+    // Also using w-screen as a fallback for viewport width
+    <footer className="mt-12 w-full min-w-full antialiased tracking-tight bg-gradient-to-b from-[#d5d5d5] to-[#868686]">
       
-      {/* 2. The inner div handles the max-width and the Safe Area padding */}
+      {/* The inner div handles the max-width and the Safe Area padding */}
       <div className="max-w-[1440px] mx-auto px-6 pt-4 pb-[calc(16px+env(safe-area-inset-bottom,20px))]">
         <div className="flex flex-row items-center justify-between w-full gap-x-8 text-[12px] text-black">
           

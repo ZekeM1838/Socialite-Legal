@@ -27,10 +27,13 @@ const legalDocuments = [
 
 export default function HomePage() {
   return (
-    <>
+    // FIX: Added wrapper div with overflow control
+    <div className="min-h-screen flex flex-col overflow-x-hidden w-full">
       <Header />
-      <main className="pt-[70px] min-h-screen bg-white ">
-      <div className="container mx-auto px-4 max-w-5xl">
+      {/* FIX: Added overflow-x-hidden to main */}
+      <main className="pt-[70px] flex-1 bg-white overflow-x-hidden">
+        {/* FIX: Added overflow-hidden to container */}
+        <div className="container mx-auto px-4 max-w-5xl overflow-hidden">
           
           {/* Big Socialite title with Drexs font */}
           <div className="panel-inset py-6 text-center border-b border-[#222222]">
@@ -80,7 +83,7 @@ export default function HomePage() {
 
                 {/* Bottom Row: Description (indented to align with title) */}
                 <div className="w-full pl-0 mt-1">
-                  <p className="text-[12px] text-black/100 text-left leading-relaxed">
+                  <p className="text-[11px] text-black/100 text-left leading-relaxed">
                     {doc.description}
                   </p>
                 </div>
@@ -90,6 +93,6 @@ export default function HomePage() {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

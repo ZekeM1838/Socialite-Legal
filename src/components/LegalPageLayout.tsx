@@ -21,10 +21,12 @@ export default function LegalPageLayout({
   const cleanDate = lastUpdated.replace(/_/g, " ");
 
   return (
-    <>
+    // FIX: Added wrapper with overflow-x-hidden to prevent any content overflow
+    <div className="min-h-screen flex flex-col overflow-x-hidden w-full">
       <Header />
-      <main className="pt-[70px] min-h-screen bg-white">
-        <div className="container mx-auto px-4 max-w-3xl">
+      <main className="pt-[70px] flex-1 bg-white overflow-x-hidden">
+        {/* FIX: Added overflow-hidden to container */}
+        <div className="container mx-auto px-4 max-w-3xl overflow-hidden">
           {/* Page Title */}
           <div className="py-10 border-b border-[#222222]">
             <h1 className="text-2xl md:text-3xl font-bold text-black mb-2">
@@ -57,6 +59,6 @@ export default function LegalPageLayout({
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

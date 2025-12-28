@@ -19,10 +19,12 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 panel-chrome antialiased tracking-tight">
+    // FIX: Added max-w-full and overflow-x-hidden to prevent header from causing horizontal overflow
+    <header className="fixed top-0 left-0 right-0 z-50 panel-chrome antialiased tracking-tight max-w-full overflow-x-hidden">
       {/* gradient bar with logo + nav */}
       <div className="bg-gradient-to-b from-[#e8e8e9] to-[#5e5c5c]">
-        <div className="max-w-[1440px] mx-auto px-6">
+        {/* FIX: Added overflow-hidden to prevent inner content from overflowing */}
+        <div className="max-w-[1440px] mx-auto px-6 overflow-hidden">
         <div className="flex items-center justify-center h-[35px] relative">
           {/* Left: Logo - Absolutely positioned to the left */}
           <div className="absolute left-0">
