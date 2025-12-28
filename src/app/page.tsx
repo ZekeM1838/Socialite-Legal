@@ -1,36 +1,27 @@
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Shield, FileText, Cookie, Users, ExternalLink } from "lucide-react";
 
 const legalDocuments = [
   {
     href: "/privacy",
-    title: "PRIVACY_POLICY",
+    title: "Privacy Policy",
     description: "How we collect, use, and protect your personal information",
-    icon: Shield,
-    color: "#0088ff",
   },
   {
     href: "/terms",
-    title: "TERMS_OF_SERVICE",
+    title: "Terms of Service",
     description: "The rules and agreements for using the Socialite app",
-    icon: FileText,
-    color: "#00d4ff",
   },
   {
     href: "/cookies",
-    title: "COOKIE_POLICY",
+    title: "Cookie Policy",
     description: "Information about cookies and tracking technologies",
-    icon: Cookie,
-    color: "#ff6b35",
   },
   {
     href: "/guidelines",
-    title: "COMMUNITY_GUIDELINES",
+    title: "Community Guidelines",
     description: "Standards for behavior and content on our platform",
-    icon: Users,
-    color: "#00ff41",
   },
 ];
 
@@ -38,92 +29,63 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <main className="pt-[100px] pb-8 min-h-screen">
-        <div className="container mx-auto px-4 max-w-4xl">
-          {/* Hero Section */}
-          <div className="panel-chrome p-8 md:p-12 rounded-lg mb-8 text-center">
-            <div className="display-lcd p-6 rounded-md mb-8 inline-block">
-              <h1 className="text-2xl md:text-4xl font-mono tracking-wider">
-                SOCIALITE_LEGAL
-              </h1>
-            </div>
-            <p className="text-lg text-muted-foreground font-medium mb-6 max-w-2xl mx-auto">
-              Welcome to the Socialite Legal Center. Here you&apos;ll find all the important
-              documents regarding your use of our platform.
+      <main className="pt-[70px] min-h-screen bg-white ">
+      <div className="container mx-auto px-4 max-w-5xl">
+          
+          {/* Big Socialite title with Drexs font */}
+          <div className="panel-inset py-6 text-center border-b border-[#222222]">
+            <h1 className="text-6xl md:text-8xl font-drexs text-black tracking-tight mb-4">
+              Socialite
+            </h1>
+            <p className="text-black/100 text-base uppercase tracking-[0.2em] text-sm">
+              Primary Legal Records Archive
             </p>
-            <div className="section-divider"></div>
-            <div className="flex items-center justify-center gap-4 text-xs font-mono text-muted-foreground">
-              <span>STATUS:</span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-[#00ff41] rounded-full animate-pulse"></span>
-                <span className="text-[#00ff41]">ACTIVE</span>
-              </span>
-            </div>
           </div>
 
-          {/* Document Cards */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            {legalDocuments.map((doc) => {
-              const Icon = doc.icon;
-              return (
-                <Link
-                  key={doc.href}
-                  href={doc.href}
-                  className="group panel-inset p-6 rounded-lg hover:shadow-lg transition-all duration-300"
-                >
-                  <div className="flex items-start gap-4">
-                    <div
-                      className="p-3 rounded-lg"
-                      style={{ backgroundColor: `${doc.color}20` }}
-                    >
-                      <Icon
-                        className="w-6 h-6"
-                        style={{ color: doc.color }}
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-2">
-                        <h2
-                          className="text-sm font-mono font-bold tracking-wider"
-                          style={{ color: doc.color }}
-                        >
-                          {doc.title}
-                        </h2>
-                        <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        {doc.description}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="mt-4 control-slider rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all duration-500 group-hover:w-full w-0"
-                      style={{ backgroundColor: doc.color }}
-                    ></div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          <div className="my-8"></div>
 
-          {/* Contact Section */}
-          <div className="panel-chrome p-8 rounded-lg text-center">
-            <div className="display-lcd p-3 rounded-md mb-4 inline-block">
-              <span className="text-sm font-mono tracking-wider">CONTACT_US</span>
-            </div>
-            <p className="text-muted-foreground mb-6">
-              Have questions about our policies? Reach out to our support team.
-            </p>
-            <a
-              href="mailto:legal@socialite.app"
-              className="btn-winamp inline-flex"
-            >
-              SEND_MESSAGE
-            </a>
-            <p className="mt-4 text-xs font-mono text-muted-foreground">
-              EMAIL: legal@socialite.app
-            </p>
+          {/* Document List */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 mb-8">
+            {legalDocuments.map((doc, index) => (
+              <Link
+                key={doc.href}
+                href={doc.href}
+                className="group flex flex-col panel-chrome items-start py-3 transition-all hover:bg-[#f5f5f5] transition-colors px-4 -mx-4"
+              >
+              <div className="flex items-center justify-between w-full">
+                  <div className="flex items-center gap-4">
+                    {/* Number */}
+                    <span className="text-[12px] font-mono text-black/100">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    {/* Title */}
+                    <h2 className="text-[15px] font-semibold text-black group-hover:underline underline-offset-4 decoration-1">
+                      {doc.title}
+                    </h2>
+                  </div>
+
+                  {/* Your Custom Knob from global.css */}
+                  <div className="shrink-0 translate-y-3">
+                    {/* Your Custom Knob - Now acting as a relative parent */}
+                    <div className="control-knob relative flex items-center justify-center !bg-white transition-transform duration-300">
+                      
+                      {/* The "X" that appears INSIDE the knob on hover */}
+                      <span className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[20px] font-bold text-black pointer-events-none">
+                        ✕
+                      </span>
+                      
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Row: Description (indented to align with title) */}
+                <div className="w-full pl-0 mt-1">
+                  <p className="text-[12px] text-black/100 text-left leading-relaxed">
+                    {doc.description}
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </main>

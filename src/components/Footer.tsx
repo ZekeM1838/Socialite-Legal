@@ -4,46 +4,31 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="panel-chrome mt-12">
-      <div className="container mx-auto px-4 py-8">
-        <div className="panel-inset p-6 rounded-lg">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer className="mt-12 antialiased tracking-tight">
+      {/* GmbH-style gradient footer - ALL IN ONE LINE */}
+      <div className="bg-gradient-to-b from-[#d5d5d5] to-[#868686]">
+        <div className="max-w-[1440px] mx-auto px-6 py-4">
+          {/* Single line layout */}
+          <div className="flex flex-row items-center justify-between w-full text-[12px] text-black">
             {/* Copyright */}
-            <div className="text-xs text-muted-foreground font-mono text-center md:text-left">
-              © {currentYear} SOCIALITE • ALL_RIGHTS_RESERVED
-            </div>
+            <span className="shrink-0 font-small opacity-80 uppercase tracking-widest">
+              © {currentYear} ALL RIGHTS RESERVED
+            </span>
 
             {/* Navigation Links */}
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-xs font-mono">
-              <Link
-                href="/privacy"
-                className="text-muted-foreground hover:text-[#0088ff] transition-colors"
-              >
-                PRIVACY
-              </Link>
-              <Link
-                href="/terms"
-                className="text-muted-foreground hover:text-[#00d4ff] transition-colors"
-              >
-                TERMS
-              </Link>
-              <Link
-                href="/cookies"
-                className="text-muted-foreground hover:text-[#ff6b35] transition-colors"
-              >
-                COOKIES
-              </Link>
-              <Link
-                href="/guidelines"
-                className="text-muted-foreground hover:text-[#00ff41] transition-colors"
-              >
-                GUIDELINES
-              </Link>
-            </div>
+            <nav className="hidden sm:flex items-center gap-x-4 opacity-80">
+              <Link href="/privacy" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">Privacy</Link>
+              <Link href="/terms" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">Terms</Link>
+              <Link href="/cookies" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">Cookies</Link>
+              <Link href="/guidelines" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">Guidelines</Link>
+            </nav>
 
-            {/* Version Info */}
-            <div className="text-xs text-muted-foreground font-mono">
-              <span className="hidden sm:inline">VERSION </span>v1.0.0
+            {/* Email + Version */}
+            <div className="flex items-center gap-3">
+              <a href="mailto:support@socialite.world" className="hover:underline opacity-80 hover:opacity-100 transition-opacity">
+                support@socialite.world
+              </a>
+              <span className="text-black/80">v1.0.0</span>
             </div>
           </div>
         </div>

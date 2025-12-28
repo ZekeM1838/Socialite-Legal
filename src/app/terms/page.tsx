@@ -113,7 +113,7 @@ export default function TermsPage() {
       <h2>13. Contact Us</h2>
       <p>
         If you have any questions about these Terms, please contact us at:{" "}
-        <a href="mailto:legal@socialite.app">legal@socialite.app</a>
+        <a href="mailto:support@socialite.world">support@socialite.world</a>
       </p>
     </LegalPageLayout>
   );

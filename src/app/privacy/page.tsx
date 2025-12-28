@@ -98,7 +98,7 @@ export default function PrivacyPage() {
       <h2>9. Contact Us</h2>
       <p>
         If you have any questions about this Privacy Policy, please contact us at:{" "}
-        <a href="mailto:privacy@socialite.app">privacy@socialite.app</a>
+        <a href="mailto:support@socialite.world">support@socialite.world</a>
       </p>
     </LegalPageLayout>
   );

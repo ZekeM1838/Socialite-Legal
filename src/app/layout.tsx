@@ -12,14 +12,14 @@ export const metadata: Metadata = {
   icons: {
     // Standard favicons
     icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/inverted-v2.png", sizes: "16x16", type: "image/png" },
+      { url: "/inverted-v2.png", sizes: "32x32", type: "image/png" },
     ],
     // Fallback .ico file for older browsers
-    shortcut: "/favicon.ico",
+    shortcut: "/inverted-v2.png",
     // Apple touch icon for iOS home screen
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/inverted-v2.png", sizes: "180x180", type: "image/png" },
     ],
   },
   
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "Socialite",
     images: [
       {
-        url: "/app-icon.png",
+        url: "/inverted-v2.png",
         width: 512,
         height: 512,
         alt: "Socialite Logo",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Socialite",
     description: "Legal documents and policies for the Socialite app",
-    images: ["/app-icon.png"],
+    images: ["/inverted-v2.png"],
   },
   
   // Additional metadata
@@ -63,9 +63,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Additional favicon fallbacks for maximum compatibility */}
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-v3.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-v6.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/inverted-v2.png" />
       </head>
       <body className="antialiased min-h-screen">
         {children}

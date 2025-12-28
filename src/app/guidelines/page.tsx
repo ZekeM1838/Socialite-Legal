@@ -126,7 +126,7 @@ export default function GuidelinesPage() {
         reporting feature. You can also contact us directly at:
       </p>
       <ul>
-        <li>Email: <a href="mailto:safety@socialite.app">safety@socialite.app</a></li>
+        <li>Email: <a href="mailto:support@socialite.world">support@socialite.world</a></li>
         <li>In-app: Tap the three dots menu on any content and select &quot;Report&quot;</li>
       </ul>
       <p>
@@ -138,7 +138,7 @@ export default function GuidelinesPage() {
       <p>
         If you believe your content was removed or your account was restricted in error, you
         can submit an appeal through the app or by emailing{" "}
-        <a href="mailto:appeals@socialite.app">appeals@socialite.app</a>.
+        <a href="mailto:support@socialite.world">support@socialite.world</a>.
       </p>
 
       <h2>9. Updates to Guidelines</h2>
@@ -150,7 +150,7 @@ export default function GuidelinesPage() {
       <h2>10. Questions?</h2>
       <p>
         If you have questions about these guidelines, please contact us at:{" "}
-        <a href="mailto:community@socialite.app">community@socialite.app</a>
+        <a href="mailto:support@socialite.world">support@socialite.world</a>
       </p>
     </LegalPageLayout>
   );

@@ -17,41 +17,41 @@ export default function LegalPageLayout({
   lastUpdated,
   children,
 }: LegalPageLayoutProps) {
+  const cleanTitle = title.replace(/_/g, " ");
+  const cleanDate = lastUpdated.replace(/_/g, " ");
+
   return (
     <>
       <Header />
-      <main className="pt-[100px] pb-8 min-h-screen">
-        <div className="container mx-auto px-4 max-w-4xl">
-          {/* Page Header */}
-          <div className="panel-chrome p-8 rounded-lg mb-8">
-            <div className="display-lcd p-4 rounded-md mb-6 inline-block">
-              <h1 className="text-xl md:text-2xl font-mono tracking-wider">
-                {title}
-              </h1>
-            </div>
-            <p className="text-muted-foreground font-medium mb-4">
+      <main className="pt-[70px] min-h-screen bg-white">
+        <div className="container mx-auto px-4 max-w-3xl">
+          {/* Page Title */}
+          <div className="py-10 border-b border-[#222222]">
+            <h1 className="text-2xl md:text-3xl font-bold text-black mb-2">
+              {cleanTitle}
+            </h1>
+            <p className="text-black/60 text-sm mb-1">
               {subtitle}
             </p>
-            <div className="flex items-center gap-4 text-xs font-mono text-muted-foreground">
-              <span>LAST_UPDATED:</span>
-              <span className="text-[#0088ff]">{lastUpdated}</span>
-            </div>
+            <p className="text-xs text-black/40">
+              Last updated: {cleanDate}
+            </p>
           </div>
 
           {/* Content */}
-          <div className="panel-inset p-8 rounded-lg">
+          <div className="py-8">
             <div className="legal-content">
               {children}
             </div>
           </div>
 
           {/* Back to Top */}
-          <div className="mt-8 text-center">
+          <div className="pb-12 text-center border-t border-[#d5d5d5] pt-8">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="btn-winamp"
             >
-              BACK_TO_TOP
+              BACK TO TOP
             </button>
           </div>
         </div>

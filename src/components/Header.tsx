@@ -3,14 +3,15 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, FileText, Shield, Cookie, Users, Home } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { href: "/", label: "HOME", icon: Home },
-  { href: "/privacy", label: "PRIVACY", icon: Shield },
-  { href: "/terms", label: "TERMS", icon: FileText },
-  { href: "/cookies", label: "COOKIES", icon: Cookie },
-  { href: "/guidelines", label: "GUIDELINES", icon: Users },
+  { href: "/", label: "Home" },
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
+  { href: "/cookies", label: "Cookies" },
+  { href: "/guidelines", label: "Guidelines" },
 ];
 
 export default function Header() {
@@ -18,82 +19,95 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 panel-chrome shadow-lg">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-[76px]">
-          {/* Logo / Brand */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="display-lcd px-4 py-2 rounded-md">
-              <span className="font-mono tracking-wider text-sm">SOCIALITE</span>
-            </div>
-            <span className="hidden sm:block text-sm text-muted-foreground font-medium">
-              LEGAL
-            </span>
-          </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 panel-chrome antialiased tracking-tight">
+      {/* gradient bar with logo + nav */}
+      <div className="bg-gradient-to-b from-[#e8e8e9] to-[#5e5c5c]">
+        <div className="max-w-[1440px] mx-auto px-6">
+        <div className="flex items-center justify-center h-[35px] relative">
+          {/* Left: Logo - Absolutely positioned to the left */}
+          <div className="absolute left-0">
+            <Link href="/" className="flex items-center gap-2">
+              <span
+                className="text-[12px] text-black font-medium opacity-80 hover:opacity-100 transition-opacity whitespace-nowrap"
+                style={{
+                  textShadow: `
+                    0 1px 0 rgba(255,255,255,0.75),   /* light highlight */
+                    0 -1px 0 rgba(0,0,0,0.25),        /* dark edge */
+                    0 2px 2px rgba(0,0,0,0.10)        /* soft depth */
+                  `,
+                }}
+              >
+                Socialite Directory
+              </span>
+            </Link>
+          </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 panel-inset rounded-full px-2 py-1">
+          {/* Middle: Desktop Navigation - This will now be the TRUE center */}
+          <nav className="hidden md:flex panel-inset items-center gap-6 px-4">
             {navItems.map((item) => {
-              const Icon = item.icon;
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex items-center gap-2 px-4 py-2 text-xs font-semibold tracking-wider rounded-full transition-all duration-200 ${
+                  className={`text-[12px] transition-all duration-150 ${
                     isActive
-                      ? "bg-[#0088ff] text-white shadow-lg"
-                      : "text-muted-foreground hover:text-foreground hover:bg-white/50"
+                      ? "text-black font-small underline underline-offset-4"
+                      : "text-black/70 hover:text-black"
                   }`}
                 >
-                  <Icon className="w-3 h-3" />
                   {item.label}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden control-knob flex items-center justify-center w-10 h-10"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-4 h-4 text-muted-foreground" />
-            ) : (
-              <Menu className="w-4 h-4 text-muted-foreground" />
-            )}
-          </button>
+          {/* Right: Mobile Menu Button - Absolutely positioned to the right */}
+          <div className="absolute right-0 md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="control-knob items-center justify-center w-8 h-8 flex p-1"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-4 h-4 text-black" />
+              ) : (
+                <Menu className="w-4 h-4 text-black" />
+              )}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden pb-4">
-            <div className="panel-inset rounded-lg p-4 space-y-2">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                const isActive = pathname === item.href;
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`flex items-center gap-3 px-4 py-3 text-sm font-semibold tracking-wider rounded-lg transition-all duration-200 ${
-                      isActive
-                        ? "bg-[#0088ff] text-white"
-                        : "text-muted-foreground hover:text-foreground hover:bg-white/50"
-                    }`}
-                  >
-                    <Icon className="w-4 h-4" />
-                    {item.label}
-                  </Link>
-                );
-              })}
+          {/* Mobile Navigation */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden py-2">
+              
+              <nav className="panel-inset rounded-lg flex flex-col items-center gap-2 pt-2 border-t border-black/20">
+                {navItems.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`text-[12px] py-2 transition-all duration-150 rounded-lg ${
+                        isActive
+                          ? "text-black font-medium underline underline-offset-4"
+                          : "text-black/70 hover:text-black"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </nav>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
+      
+      {/* Bottom border */}
+      <div className="h-[1px] bg-[#222222]"></div>
     </header>
   );
 }
