@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "About",
   description: "The story of Socialite - how it started, where it's going",
   openGraph: {
-    title: "About | Socialite",
+    title: "Socialite | About",
     description: "The story of Socialite - how it started, where it's going",
     type: "website",
   },
@@ -59,7 +59,7 @@ export default function AboutPage() {
         <div className="py-16 text-center border-b border-[#222222]">
           <h1 className="text-4xl md:text-5xl font-drexs text-black mb-4">
             {/* EDIT: Your main headline */}
-            The Story of Socialite
+            Meet 
           </h1>
           <p className="text-black/60 text-sm uppercase tracking-[0.15em] mb-6">
             {/* EDIT: Subtitle */}
@@ -67,7 +67,7 @@ export default function AboutPage() {
           </p>
           <p className="text-[12px] text-black/40">
             {/* EDIT: Author/date line */}
-            By [YOUR NAME] · [MONTH YEAR]
+            By Zeke Milay · December 2025
           </p>
         </div>
 
@@ -81,8 +81,8 @@ export default function AboutPage() {
           </p>
           <p className="text-[15px] text-black/80 leading-relaxed mb-6">
             {/* EDIT: Continue intro */}
-            If you&apos;re new here, my name is [YOUR NAME] and I founded Socialite 
-            back in [YEAR]. This is the story of how it all started.
+            If you&apos;re new here, my name is Zeke Milay and I founded Socialite 
+            back in late 2024. This is the story of how it all started.
           </p>
 
           {/* IMAGE PLACEHOLDER - Founder/Team photo */}
