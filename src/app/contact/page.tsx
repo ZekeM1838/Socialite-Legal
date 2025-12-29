@@ -35,7 +35,7 @@ export default function ContactPage() {
 
         {/* Support Section */}
         <div className="mt-6">
-          <p className="text-[11px] text-black/100 tracking-wider mb-3 px-1">
+          <p className="text-[10px] font-bold text-black/100 tracking-wider mb-3 px-1">
             Support
           </p>
           <div className="panel-chrome rounded-sm overflow-hidden">
@@ -60,7 +60,7 @@ export default function ContactPage() {
 
         {/* Social Media Section */}
         <div className="mt-10">
-          <p className="text-[11px] text-black/100 tracking-wider mb-3 px-1">
+          <p className="text-[10px] font-bold text-black/100 tracking-wider mb-3 px-1">
             Social Media
           </p>
           <div className="panel-chrome rounded-lg overflow-hidden">
