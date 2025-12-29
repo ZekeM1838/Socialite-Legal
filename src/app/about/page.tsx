@@ -52,25 +52,6 @@ export default function AboutPage() {
   return (
     <ClientLayout>
       <div className="container mx-auto px-4 max-w-3xl">
-        
-        {/* ============================================
-            HERO SECTION - Main Title
-            ============================================ 
-        <div className="py-16 text-center border-b border-[#222222]">
-          <h1 className="text-4xl md:text-5xl font-drexs text-black mb-4">
-            {/* EDIT: Your main headline */}
-            Meet 
-          </h1>
-          <p className="text-black/60 text-sm uppercase tracking-[0.15em] mb-6">
-            {/* EDIT: Subtitle */}
-            How it started, and where it&apos;s going
-          </p>
-          <p className="text-[12px] text-black/40">
-            {/* EDIT: Author/date line */}
-            By Zeke Milay · December 2025
-          </p>
-        </div>*/}
-
         {/* ============================================
             INTRO SECTION
             ============================================ */}
