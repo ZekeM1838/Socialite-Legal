@@ -73,11 +73,11 @@ export default function ComingSoonPage() {
               {/* Bottom Container Mimic */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <GlassButton 
-                  title="BACK" 
+                  title="Back Home" 
                   href="/" 
                 />
                 <GlassButton 
-                  title="JOIN WAITLIST" 
+                  title="Join Waitlist" 
                   href="/waitlist" 
                 />
               </div>
