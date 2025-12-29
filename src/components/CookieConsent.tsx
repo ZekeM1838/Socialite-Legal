@@ -51,7 +51,7 @@ export default function CookieConsent() {
               </Link>.
             </p>
 
-            {/* Buttons - right side using control-knob */}
+            {/* Buttons - right side */}
             <div className="flex items-center gap-3 shrink-0">
               {/* Decline - simple text style */}
               <button
@@ -61,10 +61,15 @@ export default function CookieConsent() {
                 Decline
               </button>
               
-              {/* Accept - control-knob style like your home page */}
+              {/* Accept - pill button style */}
               <button
                 onClick={acceptCookies}
-                className="group control-knob !w-auto !h-auto !rounded-[20%] px-4 py-2 flex items-center gap-2"
+                className="flex items-center gap-2 px-4 py-2 rounded-full
+                  bg-gradient-to-b from-[#f8f9fa] to-[#d8d9db]
+                  border border-[#8f9092]
+                  shadow-sm hover:shadow-md
+                  transition-all duration-150
+                  hover:from-[#ffffff] hover:to-[#e8e8e9]"
               >
                 <span className="flex items-center justify-center w-4 h-4 rounded-full bg-gradient-to-b from-[#3a3a3a] to-[#1a1a1a]">
                   <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
