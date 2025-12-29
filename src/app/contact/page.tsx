@@ -23,7 +23,7 @@ export default function ContactPage() {
       <div className="container mx-auto px-4 max-w-3xl">
         {/* Page Header */}
         <div className="py-10 border-b border-[#222222]">
-          <h1 className="text-[6px] font-bold text-black mb-2">
+          <h1 className="text-[10px] font-bold text-black mb-2">
             Contact
           </h1>
           <p className="text-[12px] text-black/70 leading-relaxed">
