@@ -1,9 +1,11 @@
+// src/components/Header.tsx
+
 "use client";
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, X, Search, ChevronDown } from "lucide-react";
 
 const mainNavItems = [
   { href: "/", label: "Home" },
@@ -50,10 +52,10 @@ export default function Header({ onSearchClick }: HeaderProps) {
   }, [pathname]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 panel-chrome antialiased tracking-tight max-w-full">
+    <header className="fixed top-0 left-0 right-0 z-50 panel-chrome antialiased tracking-tight max-w-full overflow-x-hidden">
       {/* Gradient bar with logo + nav */}
       <div className="bg-gradient-to-b from-[#e8e8e9] to-[#5e5c5c]">
-        <div className="max-w-[1440px] mx-auto px-6">
+        <div className="max-w-[1440px] mx-auto px-6 overflow-hidden">
           <div className="flex items-center justify-center h-[40px] relative">
             
             {/* Left: Logo */}
@@ -69,13 +71,13 @@ export default function Header({ onSearchClick }: HeaderProps) {
                     `,
                   }}
                 >
-                  Socialite Directory
+                  Socialite
                 </span>
               </Link>
             </div>
 
             {/* Center: Desktop Navigation */}
-            <nav className="hidden md:flex panel-inset items-center gap-1 px-2 overflow-visible">
+            <nav className="hidden md:flex panel-inset items-center gap-1 px-2">
               {/* Main nav items */}
               {mainNavItems.map((item) => {
                 const isActive = pathname === item.href;
@@ -99,35 +101,38 @@ export default function Header({ onSearchClick }: HeaderProps) {
                 <button
                   onClick={() => setIsLegalDropdownOpen(!isLegalDropdownOpen)}
                   className={`text-[11px] px-3 py-1 transition-all duration-150 flex items-center gap-1 ${
-                    isLegalPage || isLegalDropdownOpen
+                    isLegalPage
                       ? "text-black font-medium underline underline-offset-4"
                       : "text-black/70 hover:text-black"
                   }`}
                 >
                   Legal
+                  <ChevronDown 
+                    className={`w-3 h-3 transition-transform duration-200 ${
+                      isLegalDropdownOpen ? "rotate-180" : ""
+                    }`} 
+                  />
                 </button>
-              
-                {/* Dropdown Menu - Styled to match your panel-chrome aesthetic */}
+
+                {/* Dropdown Menu */}
                 {isLegalDropdownOpen && (
-                  <div className="absolute top-[calc(100%+8px)] left-0 w-48 py-1 bg-[#e8e8e9] border border-[#222222] rounded-md shadow-xl z-50 overflow-hidden">
-                    <div className="bg-white/50 backdrop-blur-sm">
-                      {legalItems.map((item) => {
-                        const isActive = pathname === item.href;
-                        return (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className={`block px-4 py-2 text-[11px] transition-colors ${
-                              isActive
-                                ? "text-black font-bold bg-black/5"
-                                : "text-black/70 hover:text-black hover:bg-black/5"
-                            }`}
-                          >
-                            {item.label}
-                          </Link>
-                        );
-                      })}
-                    </div>
+                  <div className="absolute top-full left-0 mt-2 w-48 py-2 bg-white border border-[#d5d5d5] rounded-lg shadow-lg z-50">
+                    {legalItems.map((item) => {
+                      const isActive = pathname === item.href;
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={`block px-4 py-2 text-[11px] transition-colors ${
+                            isActive
+                              ? "text-black font-medium bg-[#f5f5f5]"
+                              : "text-black/70 hover:text-black hover:bg-[#f5f5f5]"
+                          }`}
+                        >
+                          {item.label}
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
               </div>
