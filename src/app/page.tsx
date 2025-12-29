@@ -40,7 +40,7 @@ export default function HomePage() {
     <ClientLayout>
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Hero Section */}
-        <div className="py-16 text-center border-b border-[#222222]">
+        <div className="py-16 text-center">
           {/* Logo */}
           <h1 className="text-5xl md:text-7xl font-drexs text-black mb-4">
             Socialite
