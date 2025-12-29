@@ -63,7 +63,7 @@ export default function Header({ onSearchClick }: HeaderProps) {
                     textShadow: `0 1px 0 rgba(255,255,255,0.75), 0 -1px 0 rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.10)`,
                   }}
                 >
-                  Socialite
+                  Socialite Directory
                 </span>
               </Link>
             </div>
