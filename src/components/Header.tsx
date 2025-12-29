@@ -95,7 +95,12 @@ export default function Header({ onSearchClick }: HeaderProps) {
               })}
 
               {/* Legal Dropdown */}
-              <div className="relative" ref={dropdownRef}>
+              <div 
+                className="relative h-full flex items-center" 
+                ref={dropdownRef}
+                onMouseEnter={() => setIsLegalDropdownOpen(true)}
+                onMouseLeave={() => setIsLegalDropdownOpen(false)}
+              >
                 <button
                   onClick={() => setIsLegalDropdownOpen(!isLegalDropdownOpen)}
                   className={`text-[11px] px-3 py-1 transition-all duration-150 flex items-center gap-1 ${
@@ -106,26 +111,23 @@ export default function Header({ onSearchClick }: HeaderProps) {
                 >
                   Legal
                 </button>
-
+              
                 {/* Dropdown Menu */}
                 {isLegalDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-48 py-2 bg-white border border-[#d5d5d5] rounded-lg shadow-lg z-50">
-                    {legalItems.map((item) => {
-                      const isActive = pathname === item.href;
-                      return (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className={`block px-4 py-2 text-[11px] transition-colors ${
-                            isActive
-                              ? "text-black font-medium bg-[#f5f5f5]"
-                              : "text-black/70 hover:text-black hover:bg-[#f5f5f5]"
-                          }`}
-                        >
-                          {item.label}
-                        </Link>
-                      );
-                    })}
+                  <div className="absolute top-[30px] left-0 w-48 py-2 bg-white border border-[#d5d5d5] rounded-lg shadow-xl z-[100]">
+                    {legalItems.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={`block px-4 py-2 text-[11px] transition-colors ${
+                          pathname === item.href
+                            ? "text-black font-medium bg-[#f5f5f5]"
+                            : "text-black/70 hover:text-black hover:bg-[#f5f5f5]"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
                   </div>
                 )}
               </div>
