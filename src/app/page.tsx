@@ -45,7 +45,7 @@ export default function HomePage() {
           <h1 className="text-5xl md:text-7xl font-drexs text-black mb-4">
             Socialite
           </h1>
-          <p className="text-black/60 text-sm uppercase tracking-[0.2em] mb-8">
+          <p className="text-black/100 text-sm tracking-[0.2em] mb-8">
             Social, re-engineered. Turning moments into real world value as a community.
           </p>
 
