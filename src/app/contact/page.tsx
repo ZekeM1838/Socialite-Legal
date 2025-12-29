@@ -26,8 +26,10 @@ export default function ContactPage() {
           <h1 className="text-2xl md:text-3xl font-bold text-black mb-2">
             Contact
           </h1>
-          <p className="text-black/60 text-sm">
-            Get in touch with the Socialite team
+          <p className="text-[12px] text-black/70 leading-relaxed">
+            Get in touch with the Socialite team. We typically respond within <strong>24-48 hours</strong>.
+            </br>
+            For urgent matters, please reach out on Instagram.
           </p>
         </div>
 
@@ -99,17 +101,6 @@ export default function ContactPage() {
                 @socialitepage
               </span>
             </a>
-          </div>
-        </div>
-
-        {/* Response Time Notice */}
-        <div className="mt-10 mb-16">
-          <div className="panel-inset rounded-lg p-6 text-center">
-            <p className="text-[12px] text-black/70 leading-relaxed">
-              We typically respond within <strong>24-48 hours</strong>.
-              <br />
-              For urgent matters, please reach out on Instagram.
-            </p>
           </div>
         </div>
       </div>
