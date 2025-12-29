@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description: "Get in touch with the Socialite team",
   openGraph: {
-    title: "Contact | Socialite",
+    title: "Socialite | Contact",
     description: "Get in touch with the Socialite team",
     type: "website",
   },
@@ -22,7 +22,7 @@ export default function ContactPage() {
     <ClientLayout>
       <div className="container mx-auto px-4 max-w-3xl">
         {/* Page Header */}
-        <div className="py-10 border-b border-[#222222]">
+        <div className="py-10">
           <h1 className="text-[10px] font-bold text-black mb-1">
             Contact
           </h1>
@@ -43,7 +43,7 @@ export default function ContactPage() {
               className="contact-row group"
             >
               <div className="flex items-center gap-3">
-                <div className="control-knob flex items-center justify-center !bg-white">
+                <div className="control-knob flex items-center justify-center !bg-white !rounded-sm">
                   <Mail className="w-3 h-3 text-black/70" />
                 </div>
                 <span className="text-[14px] font-medium text-black">
@@ -70,7 +70,7 @@ export default function ContactPage() {
               className="contact-row group"
             >
               <div className="flex items-center gap-3">
-                <div className="control-knob flex items-center justify-center !bg-white">
+                <div className="control-knob flex items-center justify-center !bg-white !rounded-sm">
                   <Instagram className="w-3 h-3 text-black/70" />
                 </div>
                 <span className="text-[14px] font-medium text-black">
@@ -89,7 +89,7 @@ export default function ContactPage() {
               className="contact-row group"
             >
               <div className="flex items-center gap-3">
-                <div className="control-knob flex items-center justify-center !bg-white">
+                <div className="control-knob flex items-center justify-center !bg-white !rounded-sm">
                   <Twitter className="w-3 h-3 text-black/70" />
                 </div>
                 <span className="text-[14px] font-medium text-black">
