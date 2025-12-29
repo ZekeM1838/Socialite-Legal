@@ -9,17 +9,16 @@ export default function ComingSoonPage() {
   const [phase, setPhase] = useState<"socialite" | "coming-soon">("socialite");
 
   useEffect(() => {
-    // Phase 1: Show "Socialite" for 2.5 seconds (with animation)
-    // Phase 2: Transition to "Coming Soon"
+    // Total duration of the "Socialite" fly-through is 3.5s
     const timer = setTimeout(() => {
       setPhase("coming-soon");
-    }, 7300);
+    }, 3500); 
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="fixed inset-0 overflow-hidden">
+    <div className="fixed inset-0 overflow-hidden bg-black">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -36,17 +35,16 @@ export default function ComingSoonPage() {
               key="socialite"
               initial={{ opacity: 0, scale: 0.1 }}
               animate={{ 
-                // Opacity: Start invisible -> Peak at 1 -> Drop to 0 at the very end
+                // Fades in, stays solid, then fades out as it retreats
                 opacity: [0, 1, 1, 0], 
-                // Scale: Small -> Full -> Stay Full until fade
-                scale: [0.1, 1, 1, 1],
+                // SHOOTING ACTION: Tiny -> Giant (Zoom past) -> Normal -> Tiny (Retreat)
+                scale: [0.1, 2.2, 1, 0.2],
               }}
-              // We use exit only as a fallback now to prevent "ghosting"
               exit={{ opacity: 0 }}
               transition={{
-                duration: 2.5, // Total time for the "Socialite" text to live
-                // [0] Start, [0.2] Full Opaque, [0.8] Start Fading, [1] Gone
-                times: [0, 0.2, 0.8, 1], 
+                duration: 3.5,
+                // Timing: 0% (Start), 25% (Shot at screen), 75% (Hold), 100% (Gone)
+                times: [0, 0.25, 0.75, 1], 
                 ease: "easeInOut",
               }}
               className="text-5xl md:text-7xl font-drexs text-black"
@@ -56,26 +54,28 @@ export default function ComingSoonPage() {
           ) : (
             <motion.div
               key="coming-soon"
-              initial={{ opacity: 1, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              // Start blurred and invisible to create a "cinematic dissolve"
+              initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }}
+              animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+              transition={{ 
+                duration: 1.2, 
+                ease: "easeOut" 
+              }}
               className="text-center"
             >
-              {/* Coming Soon Text */}
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl md:text-6xl font-drexs text-black mb-4"
               >
                 Coming Soon
               </motion.h1>
 
-              {/* Subtitle */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-sm md:text-base text-black/60 mb-8 max-w-md mx-auto"
               >
                 We&apos;re working hard to bring you something amazing.
@@ -83,11 +83,10 @@ export default function ComingSoonPage() {
                 Join the waitlist to be the first to know.
               </motion.p>
 
-              {/* Buttons */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
                 <GlassButton 
@@ -106,11 +105,10 @@ export default function ComingSoonPage() {
         </AnimatePresence>
       </div>
 
-      {/* Subtle footer */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3, duration: 1 }}
+        transition={{ delay: 4, duration: 1 }}
         className="absolute bottom-6 left-0 right-0 text-center"
       >
         <p className="text-[10px] text-black/40 uppercase tracking-widest">
