@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import GlassButton from "@/components/ui/GlassButton";
 
 export default function ComingSoonPage() {
   const [phase, setPhase] = useState<"socialite" | "coming-soon">("socialite");
@@ -89,9 +90,10 @@ export default function ComingSoonPage() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
-                <Link href="/waitlist" className="btn-winamp">
-                  JOIN WAITLIST
-                </Link>
+                <GlassButton 
+                  title="JOIN WAITLIST" 
+                  href="/waitlist" 
+                />
                 <Link
                   href="/"
                   className="text-[12px] text-black/60 hover:text-black transition-colors underline underline-offset-4"
