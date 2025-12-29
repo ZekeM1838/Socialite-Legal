@@ -350,10 +350,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 32px;
+  padding: 8px 14px;
   border-radius: 14px;
   font-family: 'Drexs', sans-serif; /* Ensure this font is loaded */
-  font-size: 16px;
+  font-size: 9px;
+  line-height: 1.1;
+  min-height: 32px;
   color: #222222;
   text-decoration: none;
   background: linear-gradient(135deg, 

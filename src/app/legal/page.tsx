@@ -49,7 +49,7 @@ export default function LegalPage() {
     <ClientLayout>
       <div className="container mx-auto px-4 max-w-3xl">
         {/* Page Header */}
-        <div className="pt-10 pb-5">
+        <div className="pt-8 pb-3">
           <h1 className="text-[10px] font-bold text-black/100 tracking-wider mb-1">
             Legal
           </h1>
@@ -59,7 +59,7 @@ export default function LegalPage() {
         </div>
 
         {/* Documents List */}
-        <div className="py-10">
+        <div className="py-6">
           <div className="panel-chrome rounded-lg overflow-hidden">
             {legalDocuments.map((doc, index) => (
               <Link
@@ -92,7 +92,7 @@ export default function LegalPage() {
         </div>
 
         {/* Contact Notice */}
-        <div className="mb-16">
+        <div className="mb-10">
           <div className="panel-inset rounded-lg p-6 text-center">
             <p className="text-[12px] text-black/70 leading-relaxed">
               Questions about our policies?

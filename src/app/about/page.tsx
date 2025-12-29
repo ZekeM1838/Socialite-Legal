@@ -3,6 +3,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import AboutComingSoon from "../../components/AboutComingSoon";
 import ClientLayout from "../../components/ClientLayout";
 
 export const dynamic = "force-static";
@@ -17,6 +18,8 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
+const showComingSoon = true;
 
 /*
  * ============================================
@@ -49,6 +52,14 @@ export const metadata: Metadata = {
  */
 
 export default function AboutPage() {
+  if (showComingSoon) {
+    return (
+      <ClientLayout>
+        <AboutComingSoon />
+      </ClientLayout>
+    );
+  }
+
   return (
     <ClientLayout>
       <div className="container mx-auto px-4 max-w-3xl">

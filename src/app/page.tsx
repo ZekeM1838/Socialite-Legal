@@ -50,7 +50,7 @@ export default function HomePage() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-row flex-nowrap items-center justify-center gap-4">
             {/* Launch App Button */}
             <Link href="/coming-soon" className="btn-winamp-sm">
               <span className="flex items-center gap-2">

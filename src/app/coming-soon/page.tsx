@@ -21,8 +21,15 @@ export default function ComingSoonPage() {
     <div className="fixed inset-0 overflow-hidden bg-black">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/images/coming-soon-bg.jpeg)" }}
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url(/images/coming-soon-bg.jpeg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          width: "100%",
+          height: "100%",
+        }}
       />
 
       {/* Content */}
@@ -65,16 +72,11 @@ export default function ComingSoonPage() {
 
               {/* Subtitle */}
               <p className="text-sm md:text-base text-black/60 mb-8 mx-auto font-drexs text-center leading-snug max-w-lg md:max-w-2xl">
-                <span className="block">
-                  We&apos;re working hard to bring you something amazing.
-                </span>
-                <span className="block">
-                  Join the waitlist to be the first to know.
-                </span>
+                We&apos;re working hard to bring you something amazing. Join the waitlist to be the first to know.
               </p>
 
               {/* Bottom Container Mimic */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="flex flex-row flex-nowrap items-center justify-center gap-3">
                 <GlassButton 
                   title="Back Home" 
                   href="/" 
@@ -103,5 +105,4 @@ export default function ComingSoonPage() {
     </div>
   );
 }
-
 
