@@ -28,7 +28,6 @@ export default function ContactPage() {
           </h1>
           <p className="text-[12px] text-black/70 leading-relaxed">
             Get in touch with the Socialite team. We typically respond within <strong>24-48 hours</strong>.
-            </br>
             For urgent matters, please reach out on Instagram.
           </p>
         </div>
