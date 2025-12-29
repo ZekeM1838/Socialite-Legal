@@ -1,4 +1,8 @@
 node_modules
+.next
+.env
+.env.local
+.env.*.local
 .next/dev/build-manifest.json
 .next/dev/fallback-build-manifest.json
 .next/dev/package.json

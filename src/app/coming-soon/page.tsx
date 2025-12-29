@@ -42,7 +42,7 @@ export default function ComingSoonPage() {
                 times: [0, 0.5, 0.75, 1], 
                 ease: "easeInOut",
               }}
-              className="text-[40px] md:text-3xl font-drexs text-black"
+              className="text-[100px] md:text-xl font-drexs text-black"
             >
               Socialite
             </motion.h1>

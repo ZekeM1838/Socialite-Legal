@@ -112,20 +112,28 @@ export default function Header({ onSearchClick }: HeaderProps) {
                 </div>
 
                 {isLegalDropdownOpen && (
-                  <div className="absolute top-[30px] left-0 w-48 py-2 bg-white border border-[#d5d5d5] rounded-lg shadow-lg z-[100]">
-                    {legalItems.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className={`block px-4 py-2 text-[11px] transition-colors ${
-                          pathname === item.href
-                            ? "text-black font-medium bg-[#f5f5f5]"
-                            : "text-black/70 hover:text-black hover:bg-[#f5f5f5]"
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
+                  <div className="absolute top-[34px] left-0 w-[230px] panel-chrome rounded-[24px] p-2 shadow-lg z-[100]">
+                    <div className="px-3 pt-2 pb-1">
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-black/60">
+                        Legal
+                      </p>
+                      <div className="h-px bg-black/10 mt-2"></div>
+                    </div>
+                    <div className="px-2 pb-2 pt-1 space-y-1">
+                      {legalItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={`block px-3 py-2 text-[12px] rounded-[12px] transition-colors ${
+                            pathname === item.href
+                              ? "text-black font-medium bg-white/70"
+                              : "text-black/70 hover:text-black hover:bg-white/70"
+                          }`}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>

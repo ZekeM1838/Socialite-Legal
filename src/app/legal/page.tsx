@@ -3,7 +3,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ClientLayout from "../../components/ClientLayout";
-import { FileText, Shield, Cookie, Users } from "lucide-react";
 
 export const dynamic = "force-static";
 export const revalidate = false;
@@ -21,28 +20,24 @@ export const metadata: Metadata = {
 const legalDocuments = [
   {
     href: "/privacy",
-    icon: Shield,
     title: "Privacy Policy",
     description: "How we collect, use, and protect your personal information",
     updated: "December 2025",
   },
   {
     href: "/terms",
-    icon: FileText,
     title: "Terms of Service",
     description: "The rules and agreements for using the Socialite app",
     updated: "December 2025",
   },
   {
     href: "/cookies",
-    icon: Cookie,
     title: "Cookie Policy",
     description: "Information about cookies and tracking technologies",
     updated: "December 2025",
   },
   {
     href: "/guidelines",
-    icon: Users,
     title: "Community Guidelines",
     description: "Standards for behavior and content on our platform",
     updated: "December 2025",
@@ -66,43 +61,33 @@ export default function LegalPage() {
         {/* Documents List */}
         <div className="py-10">
           <div className="panel-chrome rounded-lg overflow-hidden">
-            {legalDocuments.map((doc, index) => {
-              const Icon = doc.icon;
-              return (
-                <Link
-                  key={doc.href}
-                  href={doc.href}
-                  className="contact-row group"
-                >
-                  <div className="flex items-center gap-4 flex-1 min-w-0">
-                    {/* Icon */}
-                    <div className="control-knob flex items-center justify-center !bg-white shrink-0">
-                      <Icon className="w-3 h-3 text-black/70" />
+            {legalDocuments.map((doc, index) => (
+              <Link
+                key={doc.href}
+                href={doc.href}
+                className="contact-row group"
+              >
+                <div className="flex items-center gap-4 flex-1 min-w-0">
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-mono text-black/40">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <h2 className="text-[14px] font-semibold text-black group-hover:underline underline-offset-4 truncate">
+                        {doc.title}
+                      </h2>
                     </div>
-
-                    {/* Content */}
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-mono text-black/40">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                        <h2 className="text-[14px] font-semibold text-black group-hover:underline underline-offset-4 truncate">
-                          {doc.title}
-                        </h2>
-                      </div>
-                      <p className="text-[11px] text-black/50 mt-0.5 truncate">
-                        {doc.description}
-                      </p>
-                    </div>
+                    <p className="text-[11px] text-black/50 mt-0.5 truncate">
+                      {doc.description}
+                    </p>
                   </div>
+                </div>
 
-                  {/* Last Updated */}
-                  <span className="text-[10px] text-black/40 shrink-0 hidden sm:block">
-                    {doc.updated}
-                  </span>
-                </Link>
-              );
-            })}
+                <span className="text-[10px] text-black/40 shrink-0 hidden sm:block">
+                  {doc.updated}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
 

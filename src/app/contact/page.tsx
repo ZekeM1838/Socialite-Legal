@@ -1,7 +1,6 @@
 // src/app/contact/page.tsx
 
 import type { Metadata } from "next";
-import { Mail, Instagram, Twitter } from "lucide-react";
 import ClientLayout from "../../components/ClientLayout";
 
 export const dynamic = "force-static";
@@ -44,9 +43,6 @@ export default function ContactPage() {
               className="contact-row group"
             >
               <div className="flex items-center gap-3">
-                <div className="control-knob flex items-center justify-center !bg-white !rounded-sm">
-                  <Mail className="w-3 h-3 text-black/70" />
-                </div>
                 <span className="text-[14px] font-medium text-black">
                   Customer Support
                 </span>
@@ -63,7 +59,7 @@ export default function ContactPage() {
           <p className="text-[10px] font-bold text-black/100 tracking-wider mb-3 px-1">
             Social Media
           </p>
-          <div className="panel-chrome rounded-lg overflow-hidden">
+          <div className="panel-chrome rounded-sm overflow-hidden">
             <a
               href="https://instagram.com/socialitehq"
               target="_blank"
@@ -71,9 +67,6 @@ export default function ContactPage() {
               className="contact-row group"
             >
               <div className="flex items-center gap-3">
-                <div className="control-knob flex items-center justify-center !bg-white !rounded-sm">
-                  <Instagram className="w-3 h-3 text-black/70" />
-                </div>
                 <span className="text-[14px] font-medium text-black">
                   Instagram
                 </span>
@@ -90,9 +83,6 @@ export default function ContactPage() {
               className="contact-row group"
             >
               <div className="flex items-center gap-3">
-                <div className="control-knob flex items-center justify-center !bg-white !rounded-sm">
-                  <Twitter className="w-3 h-3 text-black/70" />
-                </div>
                 <span className="text-[14px] font-medium text-black">
                   Twitter / X
                 </span>
