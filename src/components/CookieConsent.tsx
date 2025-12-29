@@ -30,10 +30,10 @@ export default function CookieConsent() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[100] antialiased tracking-tight">
-      {/* Top border line like GmbH */}
+      {/* Top border line */}
       <div className="h-[1px] bg-[#222222]"></div>
       
-      {/* Using panel-chrome with the gradient */}
+      {/* Banner background */}
       <div className="panel-chrome bg-gradient-to-b from-[#e8e8e9] to-[#5e5c5c]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-3">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
@@ -61,17 +61,13 @@ export default function CookieConsent() {
                 Decline
               </button>
               
-              {/* Accept - pill button style */}
+              {/* Accept - btn-winamp style but smaller */}
               <button
                 onClick={acceptCookies}
-                className="btn-winamp"
+                className="btn-winamp-sm flex items-center gap-2"
               >
-                <span className="flex items-center justify-center w-4 h-4 rounded-full bg-gradient-to-b from-[#3a3a3a] to-[#1a1a1a]">
-                  <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
-                </span>
-                <span className="text-[11px] font-medium text-black whitespace-nowrap">
-                  Accept and continue
-                </span>
+                <Check className="w-3 h-3" strokeWidth={3} />
+                <span>Accept and continue</span>
               </button>
             </div>
           </div>
