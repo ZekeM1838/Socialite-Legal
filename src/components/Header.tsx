@@ -50,10 +50,10 @@ export default function Header({ onSearchClick }: HeaderProps) {
   }, [pathname]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 panel-chrome antialiased tracking-tight max-w-full overflow-x-hidden">
+    <header className="fixed top-0 left-0 right-0 z-50 panel-chrome antialiased tracking-tight max-w-full">
       {/* Gradient bar with logo + nav */}
       <div className="bg-gradient-to-b from-[#e8e8e9] to-[#5e5c5c]">
-        <div className="max-w-[1440px] mx-auto px-6 overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-6">
           <div className="flex items-center justify-center h-[40px] relative">
             
             {/* Left: Logo */}
@@ -75,7 +75,7 @@ export default function Header({ onSearchClick }: HeaderProps) {
             </div>
 
             {/* Center: Desktop Navigation */}
-            <nav className="hidden md:flex panel-inset items-center gap-1 px-2 overflow visible">
+            <nav className="hidden md:flex panel-inset items-center gap-1 px-2 overflow-visible">
               {/* Main nav items */}
               {mainNavItems.map((item) => {
                 const isActive = pathname === item.href;
