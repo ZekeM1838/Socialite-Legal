@@ -35,14 +35,18 @@ export default function ComingSoonPage() {
               key="socialite"
               initial={{ opacity: 0, scale: 0.1 }}
               animate={{ 
-                opacity: [0, 0.4, 1, 1],
+                // Opacity: Start invisible -> Peak at 1 -> Drop to 0 at the very end
+                opacity: [0, 1, 1, 0], 
+                // Scale: Small -> Full -> Stay Full until fade
                 scale: [0.1, 1, 1, 1],
               }}
-              exit={{ opacity: 0, scale: 0.9 }}
+              // We use exit only as a fallback now to prevent "ghosting"
+              exit={{ opacity: 0 }}
               transition={{
-                duration: 2,
-                times: [0, 0.4, 0.7, 1],
-                ease: "linear",
+                duration: 2.5, // Total time for the "Socialite" text to live
+                // [0] Start, [0.2] Full Opaque, [0.8] Start Fading, [1] Gone
+                times: [0, 0.2, 0.8, 1], 
+                ease: "easeInOut",
               }}
               className="text-5xl md:text-7xl font-drexs text-black"
             >
