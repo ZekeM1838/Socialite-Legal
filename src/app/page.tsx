@@ -9,10 +9,10 @@ export const dynamic = "force-static";
 export const revalidate = false;
 
 export const metadata: Metadata = {
-  title: "Socialite | A New Kind of Social",
+  title: "Socialite | Social Valley",
   description: "A new kind of social platform built for authentic connections. Join the waitlist.",
   openGraph: {
-    title: "Socialite | A New Kind of Social",
+    title: "Socialite | Social Valley",
     description: "A new kind of social platform built for authentic connections. Join the waitlist.",
     type: "website",
   },
@@ -46,16 +46,15 @@ export default function HomePage() {
             Socialite
           </h1>
           <p className="text-black/60 text-sm uppercase tracking-[0.2em] mb-8">
-            A New Kind of Social
+            Social, re-engineered. Turning  moments into real world value with the people around you.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             {/* Launch App Button */}
-            <Link href="/coming-soon" className="btn-winamp">
+            <Link href="/coming-soon" className="btn-winamp-sm">
               <span className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4" />
-                LAUNCH APP
+                Launch App
               </span>
             </Link>
 
@@ -122,29 +121,6 @@ export default function HomePage() {
                 for the latest.
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Quick Links Section */}
-        <div className="py-12 border-t border-[#d5d5d5]">
-          <h2 className="text-[11px] text-black/50 uppercase tracking-wider mb-6 text-center">
-            Quick Links
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {[
-              { href: "/about", label: "About" },
-              { href: "/waitlist", label: "Waitlist" },
-              { href: "/contact", label: "Contact" },
-              { href: "/legal", label: "Legal" },
-            ].map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="panel-chrome rounded-lg p-4 text-center text-[12px] font-medium text-black/80 hover:text-black transition-all hover:shadow-md"
-              >
-                {link.label}
-              </Link>
-            ))}
           </div>
         </div>
       </div>
