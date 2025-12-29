@@ -22,22 +22,23 @@ export default function ContactPage() {
     <ClientLayout>
       <div className="container mx-auto px-4 max-w-3xl">
         {/* Page Header */}
-        <div className="py-10">
+        <div className="pt-10 pb-2">
           <h1 className="text-[10px] font-bold text-black mb-1">
             Contact
           </h1>
           <p className="text-[12px] text-black/70 leading-relaxed">
             Get in touch with the Socialite team. We typically respond within <strong>24-48 hours</strong>.
+            <br />
             For urgent matters, please reach out on Instagram.
           </p>
         </div>
 
         {/* Support Section */}
-        <div className="mt-10">
-          <p className="text-[11px] text-black/50 uppercase tracking-wider mb-3 px-1">
+        <div className="mt-6">
+          <p className="text-[11px] text-black/100 tracking-wider mb-3 px-1">
             Support
           </p>
-          <div className="panel-chrome rounded-lg overflow-hidden">
+          <div className="panel-chrome rounded-sm overflow-hidden">
             <a
               href="mailto:support@socialite.world"
               className="contact-row group"
@@ -59,7 +60,7 @@ export default function ContactPage() {
 
         {/* Social Media Section */}
         <div className="mt-10">
-          <p className="text-[11px] text-black/50 uppercase tracking-wider mb-3 px-1">
+          <p className="text-[11px] text-black/100 tracking-wider mb-3 px-1">
             Social Media
           </p>
           <div className="panel-chrome rounded-lg overflow-hidden">
