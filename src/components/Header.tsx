@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Search, ChevronDown } from "lucide-react";
+import { Menu, X, Search } from "lucide-react";
 
 const mainNavItems = [
   { href: "/", label: "Home" },
@@ -75,7 +75,7 @@ export default function Header({ onSearchClick }: HeaderProps) {
             </div>
 
             {/* Center: Desktop Navigation */}
-            <nav className="hidden md:flex panel-inset items-center gap-1 px-2">
+            <nav className="hidden md:flex panel-inset items-center gap-1 px-2 overflow visible">
               {/* Main nav items */}
               {mainNavItems.map((item) => {
                 const isActive = pathname === item.href;
@@ -105,11 +105,6 @@ export default function Header({ onSearchClick }: HeaderProps) {
                   }`}
                 >
                   Legal
-                  <ChevronDown 
-                    className={`w-3 h-3 transition-transform duration-200 ${
-                      isLegalDropdownOpen ? "rotate-180" : ""
-                    }`} 
-                  />
                 </button>
 
                 {/* Dropdown Menu */}
