@@ -38,19 +38,19 @@ const updates = [
 export default function HomePage() {
   return (
     <ClientLayout>
-      <div className="container mx-auto px-4 max-w-4xl">
-        {/* Hero Section */}
-        <div className="pt-10 pb-2 text-center">
+      {/* Hero Section */}
+      <div className="w-full">
+        <div className="px-4 md:px-8 pt-10 pb-6 text-left">
           {/* Logo */}
           <h1 className="text-5xl md:text-7xl font-drexs text-black mb-4">
             Socialite
           </h1>
-          <p className="text-black/100 text-sm tracking-[0.2em] mb-8">
+          <p className="text-black/100 text-[10px] tracking-[0.2em]">
             Social, re-engineered. Turning moments into real world value as a community.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-row flex-nowrap items-center justify-center gap-4">
+          <div className="mt-6 flex flex-row flex-nowrap items-center justify-start gap-3">
             {/* Launch App Button */}
             <Link href="/coming-soon" className="btn-winamp-sm">
               <span className="flex items-center gap-2">
@@ -67,8 +67,11 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+        <div className="h-px w-full bg-black/70" />
+      </div>
 
-        {/* Updates Section */}
+      {/* Updates Section */}
+      <div className="container mx-auto px-4 max-w-4xl">
         <div className="py-12">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-[11px] text-black/100 uppercase tracking-wider">
