@@ -103,24 +103,6 @@ export default function HomePage() {
               </article>
             ))}
           </div>
-
-          {/* More updates coming */}
-          <div className="mt-12 text-center">
-            <div className="panel-inset p-6">
-              <p className="text-[12px] text-black/60">
-                More updates coming soon. Follow{" "}
-                <a
-                  href="https://instagram.com/socialitehq"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium underline underline-offset-2 hover:text-black"
-                >
-                  @socialitehq
-                </a>{" "}
-                for the latest.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </ClientLayout>
