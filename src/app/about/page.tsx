@@ -333,12 +333,11 @@ export default function AboutPage() {
         <section className="py-12 text-center">
           <h2 className="text-xl font-bold text-black mb-4">
             {/* EDIT: CTA headline */}
-            Join the Journey
+            Find your community! 
           </h2>
           <p className="text-[14px] text-black/60 mb-8 max-w-md mx-auto">
             {/* EDIT: CTA description */}
-            We&apos;re just getting started. Sign up for the waitlist to be 
-            the first to experience Socialite.
+            Sign up for the waitlist to be the first to experience Socialite.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
