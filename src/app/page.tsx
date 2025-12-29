@@ -1,113 +1,153 @@
-import Link from "next/link";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import type { Metadata } from "next";
+// src/app/page.tsx
 
-// Force static generation
+import Link from "next/link";
+import ClientLayout from "../components/ClientLayout";
+import type { Metadata } from "next";
+import { ArrowRight, Sparkles } from "lucide-react";
+
 export const dynamic = "force-static";
 export const revalidate = false;
 
 export const metadata: Metadata = {
-  title: "Legal Documents | Socialite",
-  description: "Legal documents and policies for the Socialite app - Privacy Policy, Terms of Service, Cookie Policy, and Community Guidelines",
+  title: "Socialite | A New Kind of Social",
+  description: "A new kind of social platform built for authentic connections. Join the waitlist.",
   openGraph: {
-    title: "Legal Documents | Socialite",
-    description: "Legal documents and policies for the Socialite app",
+    title: "Socialite | A New Kind of Social",
+    description: "A new kind of social platform built for authentic connections. Join the waitlist.",
     type: "website",
   },
 };
 
-const legalDocuments = [
+// Updates - Add new posts here (newest first)
+// Format: { date: "MONTH DAY, YEAR", title: "...", content: "..." }
+const updates = [
   {
-    href: "/privacy",
-    title: "Privacy Policy",
-    description: "How we collect, use, and protect your personal information",
+    date: "December 28, 2025",
+    title: "Website Launch",
+    content:
+      "Welcome to the new Socialite website! We're excited to share our journey with you as we build something special. Sign up for the waitlist to be the first to know when we launch.",
   },
   {
-    href: "/terms",
-    title: "Terms of Service",
-    description: "The rules and agreements for using the Socialite app",
-  },
-  {
-    href: "/cookies",
-    title: "Cookie Policy",
-    description: "Information about cookies and tracking technologies",
-  },
-  {
-    href: "/guidelines",
-    title: "Community Guidelines",
-    description: "Standards for behavior and content on our platform",
+    date: "December 2025",
+    title: "Building in Public",
+    content:
+      "We believe in transparency. Follow along as we develop Socialite and share updates on our progress, challenges, and wins.",
   },
 ];
 
 export default function HomePage() {
   return (
-    // FIX: Added wrapper div with overflow control
-    <div className="min-h-screen flex flex-col overflow-x-hidden w-full">
-      <Header />
-      {/* FIX: Added overflow-x-hidden to main */}
-      <main className="pt-[70px] flex-1 bg-white overflow-x-hidden">
-        {/* FIX: Added overflow-hidden to container */}
-        <div className="container mx-auto px-4 max-w-5xl overflow-hidden">
-          
-          {/* Big Socialite title with Drexs font */}
-          <div className="panel-inset py-6 text-center border-b border-[#222222]">
-            <h1 className="text-6xl md:text-8xl font-drexs text-black tracking-tight mb-4">
-              Socialite
-            </h1>
-            <p className="text-black/100 text-base uppercase tracking-[0.2em] text-sm">
-              Primary Legal Records Archive
-            </p>
+    <ClientLayout>
+      <div className="container mx-auto px-4 max-w-4xl">
+        {/* Hero Section */}
+        <div className="py-16 text-center border-b border-[#222222]">
+          {/* Logo */}
+          <h1 className="text-5xl md:text-7xl font-drexs text-black mb-4">
+            Socialite
+          </h1>
+          <p className="text-black/60 text-sm uppercase tracking-[0.2em] mb-8">
+            A New Kind of Social
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            {/* Launch App Button */}
+            <Link href="/coming-soon" className="btn-winamp">
+              <span className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4" />
+                LAUNCH APP
+              </span>
+            </Link>
+
+            {/* Waitlist Link */}
+            <Link
+              href="/waitlist"
+              className="btn-winamp-sm flex items-center gap-2"
+            >
+              Join Waitlist
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Updates Section */}
+        <div className="py-12">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-[11px] text-black/50 uppercase tracking-wider">
+              Updates
+            </h2>
+            <span className="text-[10px] text-black/30">
+              {updates.length} post{updates.length !== 1 ? "s" : ""}
+            </span>
           </div>
 
-          <div className="my-8"></div>
-
-          {/* Document List */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 mb-8">
-            {legalDocuments.map((doc, index) => (
-              <Link
-                key={doc.href}
-                href={doc.href}
-                className="group flex flex-col panel-chrome items-start py-3 transition-all hover:bg-[#f5f5f5] transition-colors px-4 -mx-4"
+          {/* Updates Feed */}
+          <div className="space-y-6">
+            {updates.map((update, index) => (
+              <article
+                key={index}
+                className="panel-chrome rounded-lg p-6 transition-all hover:shadow-lg"
               >
-              <div className="flex items-center justify-between w-full">
-                  <div className="flex items-center gap-4">
-                    {/* Number */}
-                    <span className="text-[12px] font-mono text-black/100">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    {/* Title */}
-                    <h2 className="text-[15px] font-semibold text-black group-hover:underline underline-offset-4 decoration-1">
-                      {doc.title}
-                    </h2>
-                  </div>
+                {/* Date */}
+                <time className="text-[10px] text-black/40 uppercase tracking-wider">
+                  {update.date}
+                </time>
 
-                  {/* Your Custom Knob from global.css */}
-                  <div className="shrink-0 translate-y-3">
-                    {/* Your Custom Knob - Now acting as a relative parent */}
-                    <div className="control-knob relative flex items-center justify-center !bg-white transition-transform duration-300">
-                      
-                      {/* The "X" that appears INSIDE the knob on hover */}
-                      <span className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[20px] font-bold text-black pointer-events-none">
-                        ✕
-                      </span>
-                      
-                    </div>
-                  </div>
-                </div>
+                {/* Title */}
+                <h3 className="text-lg font-semibold text-black mt-2 mb-3">
+                  {update.title}
+                </h3>
 
-                {/* Bottom Row: Description (indented to align with title) */}
-                <div className="w-full pl-0 mt-1">
-                  <p className="text-[11px] text-black/100 text-left leading-relaxed">
-                    {doc.description}
-                  </p>
-                </div>
+                {/* Content */}
+                <p className="text-[13px] text-black/70 leading-relaxed">
+                  {update.content}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          {/* More updates coming */}
+          <div className="mt-12 text-center">
+            <div className="panel-inset rounded-lg p-6">
+              <p className="text-[12px] text-black/60">
+                More updates coming soon. Follow{" "}
+                <a
+                  href="https://instagram.com/socialitehq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium underline underline-offset-2 hover:text-black"
+                >
+                  @socialitehq
+                </a>{" "}
+                for the latest.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Links Section */}
+        <div className="py-12 border-t border-[#d5d5d5]">
+          <h2 className="text-[11px] text-black/50 uppercase tracking-wider mb-6 text-center">
+            Quick Links
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              { href: "/about", label: "About" },
+              { href: "/waitlist", label: "Waitlist" },
+              { href: "/contact", label: "Contact" },
+              { href: "/legal", label: "Legal" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="panel-chrome rounded-lg p-4 text-center text-[12px] font-medium text-black/80 hover:text-black transition-all hover:shadow-md"
+              >
+                {link.label}
               </Link>
             ))}
           </div>
         </div>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </ClientLayout>
   );
 }
