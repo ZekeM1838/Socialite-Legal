@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import GlassButton from "@/components/ui/GlassButton";
+import GlassButton from "@/src/components/ui/GlassButton";
 
 export default function ComingSoonPage() {
   const [phase, setPhase] = useState<"socialite" | "coming-soon">("socialite");
