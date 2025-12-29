@@ -12,7 +12,7 @@ export default function ComingSoonPage() {
     // Phase 2: Transition to "Coming Soon"
     const timer = setTimeout(() => {
       setPhase("coming-soon");
-    }, 2500);
+    }, 7300);
 
     return () => clearTimeout(timer);
   }, []);
@@ -51,7 +51,7 @@ export default function ComingSoonPage() {
           ) : (
             <motion.div
               key="coming-soon"
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 1, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-center"
