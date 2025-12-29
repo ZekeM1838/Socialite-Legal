@@ -95,16 +95,11 @@ export default function Header({ onSearchClick }: HeaderProps) {
               })}
 
               {/* Legal Dropdown */}
-              <div 
-                className="relative h-full flex items-center" 
-                ref={dropdownRef}
-                onMouseEnter={() => setIsLegalDropdownOpen(true)}
-                onMouseLeave={() => setIsLegalDropdownOpen(false)}
-              >
+              <div className="relative" ref={dropdownRef}>
                 <button
                   onClick={() => setIsLegalDropdownOpen(!isLegalDropdownOpen)}
                   className={`text-[11px] px-3 py-1 transition-all duration-150 flex items-center gap-1 ${
-                    isLegalPage
+                    isLegalPage || isLegalDropdownOpen
                       ? "text-black font-medium underline underline-offset-4"
                       : "text-black/70 hover:text-black"
                   }`}
@@ -112,22 +107,27 @@ export default function Header({ onSearchClick }: HeaderProps) {
                   Legal
                 </button>
               
-                {/* Dropdown Menu */}
+                {/* Dropdown Menu - Styled to match your panel-chrome aesthetic */}
                 {isLegalDropdownOpen && (
-                  <div className="absolute top-[30px] left-0 w-48 py-2 bg-white border border-[#d5d5d5] rounded-lg shadow-xl z-[100]">
-                    {legalItems.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className={`block px-4 py-2 text-[11px] transition-colors ${
-                          pathname === item.href
-                            ? "text-black font-medium bg-[#f5f5f5]"
-                            : "text-black/70 hover:text-black hover:bg-[#f5f5f5]"
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
+                  <div className="absolute top-[calc(100%+8px)] left-0 w-48 py-1 bg-[#e8e8e9] border border-[#222222] rounded-md shadow-xl z-50 overflow-hidden">
+                    <div className="bg-white/50 backdrop-blur-sm">
+                      {legalItems.map((item) => {
+                        const isActive = pathname === item.href;
+                        return (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className={`block px-4 py-2 text-[11px] transition-colors ${
+                              isActive
+                                ? "text-black font-bold bg-black/5"
+                                : "text-black/70 hover:text-black hover:bg-black/5"
+                            }`}
+                          >
+                            {item.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
                 )}
               </div>
