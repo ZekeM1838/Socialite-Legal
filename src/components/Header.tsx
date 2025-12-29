@@ -69,7 +69,7 @@ export default function Header({ onSearchClick }: HeaderProps) {
                     `,
                   }}
                 >
-                  Socialite
+                  Socialite Directory
                 </span>
               </Link>
             </div>
