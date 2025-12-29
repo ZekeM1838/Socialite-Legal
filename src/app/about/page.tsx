@@ -55,7 +55,7 @@ export default function AboutPage() {
         
         {/* ============================================
             HERO SECTION - Main Title
-            ============================================ */}
+            ============================================ 
         <div className="py-16 text-center border-b border-[#222222]">
           <h1 className="text-4xl md:text-5xl font-drexs text-black mb-4">
             {/* EDIT: Your main headline */}
@@ -69,7 +69,7 @@ export default function AboutPage() {
             {/* EDIT: Author/date line */}
             By Zeke Milay · December 2025
           </p>
-        </div>
+        </div>*/}
 
         {/* ============================================
             INTRO SECTION
