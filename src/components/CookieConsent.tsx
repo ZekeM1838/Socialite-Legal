@@ -64,12 +64,7 @@ export default function CookieConsent() {
               {/* Accept - pill button style */}
               <button
                 onClick={acceptCookies}
-                className="flex items-center gap-2 px-4 py-2 rounded-full
-                  bg-gradient-to-b from-[#f8f9fa] to-[#d8d9db]
-                  border border-[#8f9092]
-                  shadow-sm hover:shadow-md
-                  transition-all duration-150
-                  hover:from-[#ffffff] hover:to-[#e8e8e9]"
+                className="btn-winamp"
               >
                 <span className="flex items-center justify-center w-4 h-4 rounded-full bg-gradient-to-b from-[#3a3a3a] to-[#1a1a1a]">
                   <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
