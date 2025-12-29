@@ -342,8 +342,8 @@ export default function AboutPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/waitlist" className="btn-winamp">
-              JOIN WAITLIST
+            <Link href="/waitlist" className="btn-winamp-sm">
+              Join Waitlist
             </Link>
             <a
               href="https://instagram.com/socialitehq"
