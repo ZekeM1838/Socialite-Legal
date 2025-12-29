@@ -71,10 +71,10 @@ export default function HomePage() {
         {/* Updates Section */}
         <div className="py-12">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-[11px] text-black/50 uppercase tracking-wider">
+            <h2 className="text-[11px] text-black/100 uppercase tracking-wider">
               Updates
             </h2>
-            <span className="text-[10px] text-black/30">
+            <span className="text-[10px] text-black/100">
               {updates.length} post{updates.length !== 1 ? "s" : ""}
             </span>
           </div>
