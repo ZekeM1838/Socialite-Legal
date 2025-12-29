@@ -39,17 +39,17 @@ export default function ComingSoonPage() {
             <motion.h1
               key="socialite"
               initial={{ opacity: 0, scale: 0.1 }}
-              animate={{ 
-                opacity: [0, 0.4, 1, 0], 
-                scale: [0.1, .5, .8, 0.1] // Shot forward then pulled back
+              animate={{
+                opacity: [0, 0.4, 1, 0],
+                scale: [0.1, 1, 1, 1],
               }}
               exit={{ opacity: 0 }}
               transition={{
-                duration: 3.5,
-                times: [0, 0.5, 0.75, 1], 
-                ease: "easeInOut",
+                duration: 2,
+                times: [0, 0.5, 0.8, 1],
+                ease: "linear",
               }}
-              className="text-[100px] md:text-xl font-drexs text-black"
+              className="text-4xl md:text-6xl font-drexs text-black"
             >
               Socialite
             </motion.h1>
@@ -105,4 +105,3 @@ export default function ComingSoonPage() {
     </div>
   );
 }
-
