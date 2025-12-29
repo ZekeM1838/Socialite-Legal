@@ -5,7 +5,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import ClientLayout from "../../components/ClientLayout";
-import { Check, Loader2, Instagram } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 // Common countries for the dropdown
 const countries = [
@@ -78,14 +78,26 @@ export default function WaitlistPage() {
     setIsSubmitting(true);
 
     try {
-      // TODO: Connect to Supabase
-      // For now, simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit");
+      }
 
       // Success!
       setIsSubmitted(true);
     } catch (err) {
-      setError("Something went wrong. Please try again.");
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -97,11 +109,6 @@ export default function WaitlistPage() {
       <ClientLayout>
         <div className="container mx-auto px-4 max-w-xl">
           <div className="py-20 text-center">
-            {/* Success Icon */}
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-b from-[#3a3a3a] to-[#1a1a1a] flex items-center justify-center">
-              <Check className="w-8 h-8 text-white" strokeWidth={3} />
-            </div>
-
             <h1 className="text-2xl md:text-3xl font-bold text-black mb-4">
               Thank you!
             </h1>
@@ -125,10 +132,11 @@ export default function WaitlistPage() {
                   @socialitehq
                 </a>{" "}
                 on Instagram to stay connected for live updates.
+                <p className="text-[12px] text-black/100 py-2">
+                — Socialite Team
+                </p>
               </p>
             </div>
-
-            <p className="text-[12px] text-black/50 mb-6">— Socialite Team</p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -137,7 +145,6 @@ export default function WaitlistPage() {
                 rel="noopener noreferrer"
                 className="btn-winamp-sm flex items-center gap-2"
               >
-                <Instagram className="w-3.5 h-3.5" />
                 <span>Follow on Instagram</span>
               </a>
               <Link
@@ -158,20 +165,25 @@ export default function WaitlistPage() {
     <ClientLayout>
       <div className="container mx-auto px-4 max-w-xl">
         {/* Page Header */}
-        <div className="py-10 border-b border-[#222222]">
-          <h1 className="text-2xl md:text-3xl font-bold text-black mb-2">
+        <div className="pt-10">
+          <h1 className="text-[10px] font-bold text-black mb-2">
             Join the Waitlist
           </h1>
-          <p className="text-black/60 text-sm">
-            Be the first to experience Socialite
+        </div>  
+        {/* Launch Notice */}
+        <div className="panel-inset p-4 mb-3">
+          <p className="text-[12px] text-black/70 leading-relaxed">
+            Socialite will be launching in the <strong>United States</strong> first.
+            We will then launch across the Globe shortly after. 
+            Be the first to experience Socialite.
           </p>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="py-10">
+        <form onSubmit={handleSubmit} className="mb-1">
           {/* Name Field */}
           <div className="mb-6">
-            <label className="block text-[11px] text-black/60 uppercase tracking-wider mb-2 px-1">
+            <label className="block text-[11px] text-black/100 uppercase tracking-wider mb-2 px-1">
               What is your name? <span className="text-black">*</span>
             </label>
             <input
@@ -187,7 +199,7 @@ export default function WaitlistPage() {
 
           {/* Email Field */}
           <div className="mb-6">
-            <label className="block text-[11px] text-black/60 uppercase tracking-wider mb-2 px-1">
+            <label className="block text-[11px] text-black/100 uppercase tracking-wider mb-2 px-1">
               What is your email address? <span className="text-black">*</span>
             </label>
             <input
@@ -203,7 +215,7 @@ export default function WaitlistPage() {
 
           {/* Phone Field (Optional) */}
           <div className="mb-6">
-            <label className="block text-[11px] text-black/60 uppercase tracking-wider mb-2 px-1">
+            <label className="block text-[11px] text-black/100 uppercase tracking-wider mb-2 px-1">
               What is your phone number?
             </label>
             <input
@@ -219,7 +231,7 @@ export default function WaitlistPage() {
 
           {/* Country Field */}
           <div className="mb-6">
-            <label className="block text-[11px] text-black/60 uppercase tracking-wider mb-2 px-1">
+            <label className="block text-[11px] text-black/100 uppercase tracking-wider mb-2 px-1">
               What country are you based in? <span className="text-black">*</span>
             </label>
             <select
@@ -236,14 +248,6 @@ export default function WaitlistPage() {
                 </option>
               ))}
             </select>
-          </div>
-
-          {/* Launch Notice */}
-          <div className="panel-inset rounded-lg p-4 mb-8">
-            <p className="text-[11px] text-black/70 leading-relaxed">
-              Socialite will be launching in the <strong>United States</strong> first.
-              We will then launch across the Globe shortly after.
-            </p>
           </div>
 
           {/* Privacy Notice */}
@@ -269,7 +273,7 @@ export default function WaitlistPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="btn-winamp w-full disabled:opacity-50 disabled:cursor-not-allowed"
+            className="btn-winamp-sm  disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (
               <span className="flex items-center gap-2">

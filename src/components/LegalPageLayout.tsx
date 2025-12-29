@@ -25,15 +25,15 @@ export default function LegalPageLayout({
     <ClientLayout>
       <div className="container mx-auto px-4 max-w-3xl overflow-hidden">
         {/* Page Title */}
-        <div className="py-10 border-b border-[#222222]">
-          <h1 className="text-2xl md:text-3xl font-bold text-black mb-2">
+        <div className="pt-10">
+          <h1 className="text-[10px] font-bold text-black/100 tracking-wider mb-1">
             {cleanTitle}
           </h1>
-          <p className="text-black/60 text-sm mb-1">
-            {subtitle}
-          </p>
-          <p className="text-xs text-black/40">
+          <p className="text-xs text-black/40 mb-4">
             Last updated: {cleanDate}
+          </p>
+          <p className="text-[12px] text-black/70 leading-relaxed">
+            {subtitle}
           </p>
         </div>
 

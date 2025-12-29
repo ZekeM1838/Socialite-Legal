@@ -12,7 +12,7 @@ export default function ComingSoonPage() {
     // Phase 1: Socialite Fly-through (3.5s)
     const timer = setTimeout(() => {
       setPhase("coming-soon");
-    }, 3500);
+    }, 7300);
 
     return () => clearTimeout(timer);
   }, []);
@@ -33,16 +33,16 @@ export default function ComingSoonPage() {
               key="socialite"
               initial={{ opacity: 0, scale: 0.1 }}
               animate={{ 
-                opacity: [0, 1, 1, 0], 
-                scale: [0.1, 2.2, 1, 0.2] // Shot forward then pulled back
+                opacity: [0, 0.4, 1, 0], 
+                scale: [0.1, .5, .8, 0.1] // Shot forward then pulled back
               }}
               exit={{ opacity: 0 }}
               transition={{
                 duration: 3.5,
-                times: [0, 0.25, 0.75, 1], 
+                times: [0, 0.5, 0.75, 1], 
                 ease: "easeInOut",
               }}
-              className="text-5xl md:text-7xl font-drexs text-black"
+              className="text-[40px] md:text-3xl font-drexs text-black"
             >
               Socialite
             </motion.h1>
@@ -64,10 +64,13 @@ export default function ComingSoonPage() {
               </h1>
 
               {/* Subtitle */}
-              <p className="text-sm md:text-base text-black/60 mb-8 max-w-md mx-auto font-drexs">
-                We&apos;re working hard to bring you something amazing.
-                <br />
-                Join the waitlist to be the first to know.
+              <p className="text-sm md:text-base text-black/60 mb-8 mx-auto font-drexs text-center leading-snug max-w-lg md:max-w-2xl">
+                <span className="block">
+                  We&apos;re working hard to bring you something amazing.
+                </span>
+                <span className="block">
+                  Join the waitlist to be the first to know.
+                </span>
               </p>
 
               {/* Bottom Container Mimic */}

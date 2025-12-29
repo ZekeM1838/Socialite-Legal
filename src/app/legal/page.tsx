@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Legal",
   description: "Legal documents and policies for Socialite",
   openGraph: {
-    title: "Legal | Socialite",
+    title: "LEGAL - Socialite",
     description: "Legal documents and policies for Socialite",
     type: "website",
   },
@@ -54,12 +54,12 @@ export default function LegalPage() {
     <ClientLayout>
       <div className="container mx-auto px-4 max-w-3xl">
         {/* Page Header */}
-        <div className="py-10 border-b border-[#222222]">
-          <h1 className="text-2xl md:text-3xl font-bold text-black mb-2">
+        <div className="pt-10 pb-5">
+          <h1 className="text-[10px] font-bold text-black/100 tracking-wider mb-1">
             Legal
           </h1>
-          <p className="text-black/60 text-sm">
-            Legal documents and policies for Socialite
+          <p className="text-[12px] text-black/70 leading-relaxed">
+            Documents and policies for <strong>Socialite</strong>
           </p>
         </div>
 
