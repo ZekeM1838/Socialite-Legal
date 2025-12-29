@@ -64,7 +64,6 @@ export default function HomePage() {
               className="btn-winamp-sm flex items-center gap-2"
             >
               Join Waitlist
-              <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
         </div>
