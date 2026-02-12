@@ -21,7 +21,7 @@ export default function Footer() {
           <div className="flex flex-row items-center justify-between gap-x-6 sm:gap-x-8 text-[12px] text-black">
             
             {/* Copyright */}
-            <span className="shrink-0 font-medium opacity-80 uppercase tracking-widest whitespace-nowrap">
+            <span className="shrink-0 font-[11px] opacity-80 uppercase tracking-widest whitespace-nowrap">
               © {currentYear} ALL RIGHTS RESERVED
             </span>
 
