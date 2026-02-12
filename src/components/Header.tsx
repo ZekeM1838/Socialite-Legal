@@ -55,7 +55,7 @@ export default function Header({ onSearchClick }: HeaderProps) {
         <div className="max-w-[1440px] mx-auto px-6">
           <div className="flex items-center justify-center h-[40px] relative">
             
-            <div className="flex-shrink-0">
+            <div className="absolute-left-0">
               <Link href="/" className="flex items-center gap-2">
                 <span
                   className="text-[12px] text-black font-medium opacity-80 hover:opacity-100 transition-opacity whitespace-nowrap"
